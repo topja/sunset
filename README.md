@@ -28,7 +28,7 @@
 
 **Sunset Experience** es una página web diseñada para ofrecer experiencias únicas en el litoral. Permite a los visitantes descubrir, explorar y reservar experiencias relacionadas con el amor, el bienestar y la naturaleza.
 
-La aplicación cuenta con un diseño moderno, intuitivo y dinámico, integrando una API RESTful desarrollada con Golang y el framework Gin.
+La página cuenta con un diseño moderno, intuitivo y dinámico, integrando una API RESTful desarrollada con Golang y el framework Gin.
 
 - [En construcción]()
 
