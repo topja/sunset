@@ -1,13 +1,11 @@
-import sunsetIcon from "./assets/sunset.svg";
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen bg-gray-100">
-      <img src={sunsetIcon} alt="Sunset Icon" className="w-40 h-40 mb-4" />
-      <h1 className="text-2xl font-bold text-blue-500">
-        ¡Hola, Sunset Experience!
-      </h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
