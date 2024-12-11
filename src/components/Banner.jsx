@@ -8,36 +8,41 @@ const Banner = () => {
 
   return (
     <div
-      className="relative h-[500px] w-full bg-cover bg-center"
-      style={{ backgroundImage: "url('/src/assets/ElTabo.jpg')" }}
+      className="relative h-[500px] md:h-[600px] lg:h-[600px] w-full bg-cover bg-center"
+      style={{ backgroundImage: "url('/src/assets/ElTabo5.jpg')" }}
     >
+      <div className="absolute inset-0 bg-black/20"></div>
       {/* Encabezado */}
-      <div className="absolute top-0 left-0 w-full p-4 flex justify-between items-center text-white">
-        <h1 className="text-2xl font-bold">S E</h1>
-        <nav className="flex space-x-4">
-          <a href="#about" className="hover:underline">
+      <div className="relative top-0 left-0 w-full p-4 flex justify-between items-center text-white md:p-6 lg:p-8">
+        <img src="/src/assets/sunset.svg" alt="logo" className="h-12 md:h-16 lg:h-20" />
+        <nav className="flex space-x-4 text-sm md:text-base lg:text-lg">
+          <a href="#about" className="hover:underline font-bold">
             About
           </a>
-          <a href="#blog" className="hover:underline">
+          <a href="#blog" className="hover:underline font-bold">
             Blog
           </a>
-          <a href="#contact" className="hover:underline">
+          <a href="#contact" className="hover:underline font-bold">
             Contact
           </a>
         </nav>
       </div>
 
       {/* Contenido Central */}
-      <div className="flex flex-col justify-center items-center h-full text-white text-center px-4">
-        <h2 className="text-2xl font-bold mb-2">Limpia tu cuerpo, sana tu alma</h2>
-        <p className="text-base mb-8">Explora nuestras experiencias únicas y kits de bienvenida</p>
+      <div className="relative flex flex-col justify-center items-start h-full text-left px-4 md:px-12 lg:px-20">
+        <h2 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-2">
+          Limpia tu cuerpo, sana tu alma
+        </h2>
+        <p className="text-white font-bold text-base md:text-lg lg:text-xl mb-8">
+          Empieza tu desconexión desde el primer momento.
+        </p>
       </div>
 
       {/* Tabs */}
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Tarjetas */}
-      <div className="bg-white p-6 mt-4">
+      <div className="bg-white px-6 md:px-8 lg:px-10">
         <CardList items={cards[activeTab]} />
       </div>
     </div>
