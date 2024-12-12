@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 import NavigationBar from "./components/NavigationBar";
 
 function App() {
@@ -16,9 +19,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<div>About Page</div>} />
-        <Route path="/blog" element={<div>Blog Page</div>} />
-        <Route path="/contact" element={<div>Contact Page</div>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );
