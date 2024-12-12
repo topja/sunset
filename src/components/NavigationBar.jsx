@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import MenuIcon from "../assets/Menu.svg";
+import MenuIcon from "../assets/icons/Menu.svg";
 import MobileMenu from "./MobileMenu";
 
 const NavigationBar = ({ links }) => {
@@ -21,7 +21,7 @@ const NavigationBar = ({ links }) => {
             <Link
               key={link.label}
               to={link.href}
-              className="text-gray-700 hover:text-amber-600 font-medium"
+              className="text-gray-700 hover:text-customBlue font-medium"
             >
               {link.label}
             </Link>
@@ -30,7 +30,7 @@ const NavigationBar = ({ links }) => {
 
         {/* Menú de Hamburguesa - Mobile */}
         <button
-          className="block md:hidden text-gray-700"
+          className="block md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <img src={MenuIcon} alt="Menu" className="h-6 w-6" />
