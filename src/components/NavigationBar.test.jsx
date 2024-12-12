@@ -21,4 +21,21 @@ describe("NavigationBar Component", () => {
       expect(screen.getByText(link.label)).toBeInTheDocument();
     });
   });
+
+  it("toggles the mobile menu when clicking the hamburger button", () => {
+    render(<NavigationBar links={mockLinks} />);
+
+    const hamburgerButton = screen.getByRole("button");
+    fireEvent.click(hamburgerButton);
+
+    mockLinks.forEach((link) => {
+      expect(screen.getByText(link.label)).toBeInTheDocument();
+    });
+
+    fireEvent.click(hamburgerButton);
+
+    mockLinks.forEach((link) => {
+      expect(screen.queryByText(link.label)).not.toBeInTheDocument();
+    });
+  });
 });
