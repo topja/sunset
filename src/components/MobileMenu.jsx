@@ -6,12 +6,12 @@ const MobileMenu = ({ links, isOpen }) => {
 
   return (
     <nav className="md:hidden bg-white shadow-md">
-      <ul className="flex flex-col space-y-4 p-4">
+      <ul className="flex flex-row justify-center space-x-4 p-4">
         {links.map((link) => (
           <li key={link.label}>
             <Link
               to={link.href}
-              className="block text-gray-700 hover:text-amber-600 font-medium"
+              className="block text-gray-900 font-bold hover:text-customBlue"
             >
               {link.label}
             </Link>
