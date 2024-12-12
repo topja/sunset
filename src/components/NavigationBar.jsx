@@ -12,7 +12,7 @@ const NavigationBar = ({ links }) => {
       <div className="flex justify-between items-center p-4 md:p-6 lg:p-8">
         {/* Logo */}
         <Link to="/">
-          <img src="/src/assets/sunset.svg" alt="Logo" className="h-12 md:h-16" />
+          <img src="/src/assets/icons/sunset.svg" alt="Logo" className="h-12 md:h-16" />
         </Link>
 
         {/* Links - Desktop */}
