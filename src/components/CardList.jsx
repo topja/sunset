@@ -27,7 +27,7 @@ const CardList = ({ items }) => {
 
             {/* Botón de Reserva */}
             <button
-              className="mt-4 py-2 px-4 bg-amber-600 text-white font-medium rounded-md hover:bg-amber-700 transition-all"
+              className="mt-4 py-2 px-4 bg-verdeOscuro text-white font-medium rounded-md hover:bg-pink-200 hover:text-pink-400 transition-all"
             >
               Reservar
             </button>
