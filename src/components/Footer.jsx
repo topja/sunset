@@ -14,7 +14,7 @@ const Footer = () => {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full hover:bg-indigo-500 transition-all"
+            className=" p-2 border rounded-full  transition-all hover:brightness-50"
           >
             <img src={FacebookIcon} alt="Facebook" className="h-6 w-6" />
           </a>
@@ -23,7 +23,7 @@ const Footer = () => {
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full hover:bg-indigo-500 transition-all"
+            className=" p-2 border rounded-full transition-all hover:brightness-50"
           >
             <img src={TwitterIcon} alt="Twitter" className="h-6 w-6" />
           </a>
@@ -32,7 +32,7 @@ const Footer = () => {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full hover:bg-indigo-500 transition-all"
+            className=" p-2 border rounded-full transition-all hover:brightness-50"
           >
             <img src={InstagramIcon} alt="Instagram" className="h-6 w-6" />
           </a>
@@ -41,7 +41,7 @@ const Footer = () => {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full hover:bg-indigo-500 transition-all"
+            className=" p-2 border rounded-full transition-all hover:brightness-50"
           >
             <img src={LinkedinIcon} alt="LinkedIn" className="h-6 w-6" />
           </a>
