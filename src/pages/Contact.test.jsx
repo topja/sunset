@@ -17,4 +17,21 @@ describe("Contact Section", () => {
     expect(screen.getByRole("link", { name: /Reserva en Airbnb/i })).toBeInTheDocument();
   });
 
+  it("updates input fields when the user types", () => {
+    render(<Contact />);
+
+    const nameInput = screen.getByLabelText(/Nombre completo/i);
+    const emailInput = screen.getByLabelText(/Correo electrónico/i);
+    const messageInput = screen.getByLabelText(/Mensaje/i);
+
+    fireEvent.change(nameInput, { target: { value: "Juan Pérez" } });
+    fireEvent.change(emailInput, { target: { value: "juan@example.com" } });
+    fireEvent.change(messageInput, { target: { value: "Estoy interesado en un kit." } });
+
+    expect(nameInput.value).toBe("Juan Pérez");
+    expect(emailInput.value).toBe("juan@example.com");
+    expect(messageInput.value).toBe("Estoy interesado en un kit.");
+  });
+
+
 });
