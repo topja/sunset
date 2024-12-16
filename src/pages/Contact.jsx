@@ -46,7 +46,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="mt-44 p-4">
+    <div className=" px-4 lg:px-24 lg:mt-24 lg:mb-24">
       
       <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white py-6 rounded-t-xl">
 
