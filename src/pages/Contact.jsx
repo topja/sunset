@@ -22,7 +22,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       setFormStatus("loading");
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch("https://formspree.io/f/xyyaoqnq", {
         method: "POST",
         body: new FormData(e.target),
         headers: { Accept: "application/json" },
@@ -83,7 +83,7 @@ const Contact = () => {
         
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="text-center shadow-lg p-4">
+          <div className="text-center shadow-lg p-4 border-2 border-gray-200 rounded-md">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Contáctanos
             </h2>
@@ -178,7 +178,16 @@ const Contact = () => {
               >
                 {formStatus === "loading" ? "Enviando..." : "Enviar Mensaje"}
               </button>
+                    {/* Mensaje de estado */}
+                {formStatus === "success" && (
+                  <p className="mt-4 text-green-600">¡Gracias! Hemos recibido tu mensaje.</p>
+                )}
+                {formStatus === "error" && (
+                  <p className="mt-4 text-red-600">Ocurrió un error. Inténtalo de nuevo.</p>
+                )}
             </form>
+             
+          
           </div>
         </div>
       </div>
