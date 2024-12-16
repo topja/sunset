@@ -33,5 +33,21 @@ describe("Contact Section", () => {
     expect(messageInput.value).toBe("Estoy interesado en un kit.");
   });
 
+  it("shows a success message after submitting the form", async () => {
+    render(<Contact />);
+
+    const nameInput = screen.getByLabelText(/Nombre completo/i);
+    const emailInput = screen.getByLabelText(/Correo electrónico/i);
+    const messageInput = screen.getByLabelText(/Mensaje/i);
+    const submitButton = screen.getByRole("button", { name: /Enviar mensaje/i });
+
+    fireEvent.change(nameInput, { target: { value: "Juan Pérez" } });
+    fireEvent.change(emailInput, { target: { value: "juan@example.com" } });
+    fireEvent.change(messageInput, { target: { value: "Estoy interesado en un kit." } });
+
+    fireEvent.click(submitButton);
+
+    expect(await screen.findByText(/¡Gracias por contactarnos!/i)).toBeInTheDocument();
+  });
 
 });
