@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import FacebookIcon from "../assets/facebook.svg";
-import TwitterIcon from "../assets/Twitter.svg";
-import InstagramIcon from "../assets/Instagram.svg";
-import LinkedinIcon from "../assets/Linkedin.svg";
+import FacebookIcon from "../assets/icons/Facebook.svg";
+import TwitterIcon from "../assets/icons/Twitter.svg";
+import InstagramIcon from "../assets/icons/Instagram.svg";
+import LinkedinIcon from "../assets/icons/Linkedin.svg";
 
 const Footer = () => {
   return (
@@ -151,7 +151,7 @@ const Footer = () => {
       </div>
 
       {/* Línea Final */}
-      <div className="bg-gray-900 text-gray-400 py-4 text-sm">
+      <div className="bg-gray-900 text-gray-400 py-4 px-2 text-sm">
         © {new Date().getFullYear()} Sunsetexperience.cl. Todos los derechos reservados.
       </div>
     </footer>
