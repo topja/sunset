@@ -197,7 +197,7 @@ const Contact = () => {
           <p className="mb-2 mt-2 text-center">
             Reserva con nosotros en{" "}
             <a
-              href="https://airbnb.com" 
+              href="https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-verdeOscuro font-bold hover:underline"
