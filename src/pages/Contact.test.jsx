@@ -50,4 +50,13 @@ describe("Contact Section", () => {
     expect(await screen.findByText(/¡Gracias por contactarnos!/i)).toBeInTheDocument();
   });
 
+  it("prevents submission if fields are empty", () => {
+    render(<Contact />);
+
+    const submitButton = screen.getByRole("button", { name: /Enviar mensaje/i });
+
+    fireEvent.click(submitButton);
+
+    expect(screen.queryByText(/¡Gracias por contactarnos!/i)).not.toBeInTheDocument();
+  });
 });
