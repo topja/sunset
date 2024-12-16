@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Tabs = ({ tabs, activeTab, setActiveTab }) => {
   return (
-    <div className="absolute bottom-0 left-0 w-full bg-white overflow-hidden">
+    <div className="bottom-0 left-0 w-full bg-white overflow-hidden">
       {/* Contenedor de pestañas */}
       <div
         className="flex overflow-x-auto md:overflow-visible scrollbar-hide space-x-4 pl-4 pr-4 pb-4 md:pb-6 lg:pb-8 justify-start md:justify-center"
