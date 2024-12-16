@@ -6,44 +6,60 @@ import LinkedinIcon from "../assets/Linkedin.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black text-center p-6">
-      <div className="container mx-auto">
+    <footer className="bg-gray-800 text-gray-400 text-center mt-5">
+      <div className="container mx-auto p-6">
         {/* Redes Sociales */}
         <section className="mb-4 flex justify-center space-x-4">
           <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full  transition-all hover:brightness-50"
+            className="p-2 rounded-full border-gray-400 border transition-all hover:invert hover:brightness-0"
           >
-            <img src={FacebookIcon} alt="Facebook" className="h-6 w-6" />
+            <img
+              src={FacebookIcon}
+              alt="Facebook"
+              className="h-6 w-6 hover:invert hover:brightness-0"
+            />
           </a>
 
           <a
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full transition-all hover:brightness-50"
+            className="p-2 rounded-full border-gray-400 border transition-all hover:invert hover:brightness-0"
           >
-            <img src={TwitterIcon} alt="Twitter" className="h-6 w-6" />
+            <img
+              src={TwitterIcon}
+              alt="Twitter"
+              className="h-6 w-6 hover:invert hover:brightness-0"
+            />
           </a>
 
           <a
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full transition-all hover:brightness-50"
+            className="p-2 rounded-full border-gray-400 border transition-all hover:invert hover:brightness-0"
           >
-            <img src={InstagramIcon} alt="Instagram" className="h-6 w-6" />
+            <img
+              src={InstagramIcon}
+              alt="Instagram"
+              className="h-6 w-6 hover:invert hover:brightness-0"
+            />
           </a>
 
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className=" p-2 border rounded-full transition-all hover:brightness-50"
+            className="p-2 rounded-full border-gray-400 border transition-all hover:invert hover:brightness-0"
           >
-            <img src={LinkedinIcon} alt="LinkedIn" className="h-6 w-6" />
+            <img
+              src={LinkedinIcon}
+              alt="LinkedIn"
+              className="h-6 w-6 hover:invert hover:brightness-0"
+            />
           </a>
         </section>
 
@@ -51,25 +67,27 @@ const Footer = () => {
         <section className="mb-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <h5 className="text-lg font-bold mb-2">Sunset Experience</h5>
+              <h5 className="text-lg font-bold text-white mb-2">
+                Sunset Experience
+              </h5>
               <ul>
                 <li>
-                  <Link to="/about" className="hover:text-indigo-500">
+                  <Link to="/about" className="hover:text-white transition-colors">
                     Sobre Nosotros
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog" className="hover:text-indigo-500">
+                  <Link to="/blog" className="hover:text-white transition-colors">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="hover:text-indigo-500">
+                  <Link to="/contact" className="hover:text-white transition-colors">
                     Contacto
                   </Link>
                 </li>
                 <li>
-                  <Link to="/experiences" className="hover:text-indigo-500">
+                  <Link to="/experiences" className="hover:text-white transition-colors">
                     Experiencias
                   </Link>
                 </li>
@@ -77,20 +95,20 @@ const Footer = () => {
             </div>
 
             <div>
-              <h5 className="text-lg font-bold mb-2">Enlaces Útiles</h5>
+              <h5 className="text-lg font-bold text-white mb-2">Enlaces Útiles</h5>
               <ul>
                 <li>
-                  <Link to="/faq" className="hover:text-indigo-500">
+                  <Link to="/faq" className="hover:text-white transition-colors">
                     Preguntas Frecuentes
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms" className="hover:text-indigo-500">
+                  <Link to="/terms" className="hover:text-white transition-colors">
                     Términos y Condiciones
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy" className="hover:text-indigo-500">
+                  <Link to="/privacy" className="hover:text-white transition-colors">
                     Política de Privacidad
                   </Link>
                 </li>
@@ -98,25 +116,25 @@ const Footer = () => {
             </div>
 
             <div>
-              <h5 className="text-lg font-bold mb-2">Experiencias</h5>
+              <h5 className="text-lg font-bold text-white mb-2">Experiencias</h5>
               <ul>
                 <li>
-                  <Link to="/experiences/cultural" className="hover:text-indigo-500">
+                  <Link to="/experiences/cultural" className="hover:text-white transition-colors">
                     Culturales
                   </Link>
                 </li>
                 <li>
-                  <Link to="/experiences/wellness" className="hover:text-indigo-500">
+                  <Link to="/experiences/wellness" className="hover:text-white transition-colors">
                     Bienestar
                   </Link>
                 </li>
                 <li>
-                  <Link to="/experiences/sports" className="hover:text-indigo-500">
+                  <Link to="/experiences/sports" className="hover:text-white transition-colors">
                     Deportes
                   </Link>
                 </li>
                 <li>
-                  <Link to="/experiences/food" className="hover:text-indigo-500">
+                  <Link to="/experiences/food" className="hover:text-white transition-colors">
                     Gastronomía
                   </Link>
                 </li>
@@ -124,17 +142,17 @@ const Footer = () => {
             </div>
 
             <div>
-              <h5 className="text-lg font-bold mb-2">Contacto</h5>
+              <h5 className="text-lg font-bold text-white mb-2">Contacto</h5>
               <p>Email: info@sunsetexperience.cl</p>
               <p>Teléfono: +56 9 1234 5678</p>
             </div>
           </div>
         </section>
+      </div>
 
-        {/* Derechos de Autor */}
-        <div className="mt-6 border-t border-black pt-4 text-sm">
-          © {new Date().getFullYear()} Sunsetexperience.cl. Todos los derechos reservados.
-        </div>
+      {/* Línea Final */}
+      <div className="bg-gray-900 text-gray-400 py-4 text-sm">
+        © {new Date().getFullYear()} Sunsetexperience.cl. Todos los derechos reservados.
       </div>
     </footer>
   );
