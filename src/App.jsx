@@ -5,7 +5,6 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
-import Banner from "./components/Banner";
 
 function App() {
   const navLinks = [
@@ -18,7 +17,6 @@ function App() {
   return (
     <>
       <NavigationBar links={navLinks} />
-      <Banner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
