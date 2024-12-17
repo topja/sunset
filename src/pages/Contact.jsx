@@ -46,36 +46,9 @@ const Contact = () => {
   };
 
   return (
-    <div className=" px-4 lg:px-24 lg:mt-24 lg:mb-24">
+    <div className="mt-10 mb-10 px-4 lg:px-24 lg:mt-24 lg:mb-24">
       
       <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white py-6 rounded-t-xl">
-
-     {/*    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 text-center">
-          <div className="flex flex-row gap-2">
-            <img src={MailIcon} alt="Mail" className="h-6 w-6" />
-            <div className="text-left">
-              <p className="font-bold">Correo</p>
-              <p>- info@example.com</p>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-2">
-            <img src={PhoneIcon} alt="Phone" className="h-6 w-6" />
-            <div className="text-left">
-              <p className="font-bold">Teléfono</p>
-              <p>+56 123 456 789</p>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-2">
-            <img src={OfficeIcon} alt="Office" className="h-6 w-6" />
-            <div className="text-left">
-              <p className="font-bold">Dirección</p>
-              <p>El Tabo</p>
-              <p>Calle El Tabo #57, cerca del Tabito</p>
-            </div>
-          </div>
-        </div>*/}
       </div> 
 
       {/* Formulario */}
@@ -83,13 +56,25 @@ const Contact = () => {
         
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="text-center shadow-lg p-4 border-2 border-gray-200 rounded-md">
+          <div className="text-center shadow-lg p-10 border-2 border-gray-200 rounded-md">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Contáctanos
             </h2>
             <p className="mt-2 text-lg text-gray-600">
               ¿Tienes consultas sobre nuestras experiencias o kits? Envíanos tu mensaje.
             </p>
+            <div className="flex justify-center gap-10 mt-10">
+              <div className="flex flex-col items-center gap-2">
+                <img src={MailIcon} alt="Mail" className="h-10 w-10 p-2 rounded-full border-gray-400 border" />
+                <p className="font-bold">Correo</p>
+                <p>info@example.com</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <img src={PhoneIcon} alt="Phone" className="h-10 w-10 p-2 rounded-full border-gray-400 border" />
+                <p className="font-bold">Teléfono</p>
+                <p>+56 123 456 789</p>
+              </div>
+            </div>
           </div>
           {/* Formulario */}
           <div className="bg-gray-800 text-white p-6 rounded-md shadow-md">
