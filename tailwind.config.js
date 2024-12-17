@@ -13,6 +13,10 @@ export default {
         fondo: "#F7F7F7",
       },
     },
+      fontFamily: {
+        agbalumo: ["Agbalumo", "serif"], 
+        inter: ["Inter", "sans-serif"], 
+    },
   },
   plugins: [],
 }
