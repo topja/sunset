@@ -21,7 +21,7 @@ describe("Contact Component", () => {
     expect(screen.getByRole("button", { name: /Enviar mensaje/i })).toBeInTheDocument();
 
     const airbnbLink = screen.getByRole("link", { name: /Airbnb/i });
-    expect(airbnbLink).toHaveAttribute("href", "https://airbnb.com");
+    expect(airbnbLink).toHaveAttribute("href", "https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2");
 
     const googleMap = screen.getByTitle(/Ubicación/i);
     expect(googleMap).toBeInTheDocument();
@@ -102,7 +102,7 @@ describe("Contact Component", () => {
     });
 
     expect(
-      await screen.findByText(/Ocurrió un error. Inténtalo de nuevo./i)
+      await screen.findByText(/Ocurrió un error al enviar el mensaje. Inténtalo de nuevo./i)
     ).toBeInTheDocument();
   });
 

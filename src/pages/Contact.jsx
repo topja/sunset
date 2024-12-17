@@ -1,7 +1,8 @@
 import { useState } from "react";
 import MailIcon from "../assets/icons/Mail.svg";
 import PhoneIcon from "../assets/icons/Phone.svg";
-import OfficeIcon from "../assets/icons/Office.svg";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState("idle");
@@ -37,59 +38,47 @@ const Contact = () => {
           number: "",
           message: "",
         });
+        toast.success("¡Gracias! Hemos recibido tu mensaje.");
       } else {
         setFormStatus("error");
+        toast.error("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
       }
     } catch {
       setFormStatus("error");
+      toast.error("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
     }
   };
 
   return (
-    <div className="mt-44 p-4">
-      
-      <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white py-6 rounded-t-xl">
-
-     {/*    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 text-center">
-          <div className="flex flex-row gap-2">
-            <img src={MailIcon} alt="Mail" className="h-6 w-6" />
-            <div className="text-left">
-              <p className="font-bold">Correo</p>
-              <p>- info@example.com</p>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-2">
-            <img src={PhoneIcon} alt="Phone" className="h-6 w-6" />
-            <div className="text-left">
-              <p className="font-bold">Teléfono</p>
-              <p>+56 123 456 789</p>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-2">
-            <img src={OfficeIcon} alt="Office" className="h-6 w-6" />
-            <div className="text-left">
-              <p className="font-bold">Dirección</p>
-              <p>El Tabo</p>
-              <p>Calle El Tabo #57, cerca del Tabito</p>
-            </div>
-          </div>
-        </div>*/}
+    <div className="mt-10 mb-10 px-4 lg:px-24 lg:mt-24 lg:mb-24">
+      <ToastContainer position="top-right" autoClose={3000} /> {/* Contenedor de Toastify */}
+      <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white my-6 rounded-t-xl">
       </div> 
 
       {/* Formulario */}
-      <div className="py-12">
+      <div className="">
         
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="text-center shadow-lg p-4 border-2 border-gray-200 rounded-md">
+          <div className="text-center shadow-lg py-10 px-2 border-2 border-gray-200 rounded-md">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Contáctanos
             </h2>
             <p className="mt-2 text-lg text-gray-600">
               ¿Tienes consultas sobre nuestras experiencias o kits? Envíanos tu mensaje.
             </p>
+            <div className="flex justify-center gap-10 mt-10">
+              <div className="flex flex-col items-center gap-2">
+                <img src={MailIcon} alt="Mail" className="h-10 w-10 p-2 rounded-full border-gray-400 border" />
+                <p className="font-bold">Correo</p>
+                <p>info@example.com</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <img src={PhoneIcon} alt="Phone" className="h-10 w-10 p-2 rounded-full border-gray-400 border" />
+                <p className="font-bold">Teléfono</p>
+                <p>+56 123 456 789</p>
+              </div>
+            </div>
           </div>
           {/* Formulario */}
           <div className="bg-gray-800 text-white p-6 rounded-md shadow-md">
@@ -178,26 +167,17 @@ const Contact = () => {
               >
                 {formStatus === "loading" ? "Enviando..." : "Enviar Mensaje"}
               </button>
-                    {/* Mensaje de estado */}
-                {formStatus === "success" && (
-                  <p className="mt-4 text-green-600">¡Gracias! Hemos recibido tu mensaje.</p>
-                )}
-                {formStatus === "error" && (
-                  <p className="mt-4 text-red-600">Ocurrió un error. Inténtalo de nuevo.</p>
-                )}
             </form>
-             
-          
           </div>
         </div>
       </div>
 
       {/* Mapa */}
-      <div className="w-full mt-8">
-          <p className="mb-2 mt-2 text-center">
+      <div className="w-full">
+          <p className="mb-2 mt-8 text-lg text-center">
             Reserva con nosotros en{" "}
             <a
-              href="https://airbnb.com" 
+              href="https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-verdeOscuro font-bold hover:underline"

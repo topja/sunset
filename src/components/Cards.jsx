@@ -12,7 +12,7 @@ const Cards = () => {
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Tarjetas */}
-      <div className="bg-white px-6 md:px-8 lg:px-10">
+      <div className="bg-white px-6 md:px-8 lg:px-24 mb-12">
         <CardList items={cards[activeTab]} />
       </div>
     </div>
