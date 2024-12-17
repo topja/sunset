@@ -2,6 +2,8 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import emailjs from "@emailjs/browser";
 import ReservationModal from "./ReservationModal";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CardList = ({ items }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,7 +52,9 @@ const CardList = ({ items }) => {
         templateParams,
         "VEdUEvObsOGRosT3B" // Public Key
       )
-      .then(() => console.log("Correo enviado al cliente."));
+      .then(() => {
+        console.log("Correo enviado al cliente.");
+      });
 
     // Enviar correo al usuario
     emailjs
@@ -61,13 +65,20 @@ const CardList = ({ items }) => {
         "VEdUEvObsOGRosT3B" // Public Key
       )
       .then(() => {
-        alert("Reserva enviada correctamente. Revisa tu correo electrónico.");
+        toast.success("Reserva enviada correctamente. Revisa tu correo electrónico.");
         handleCloseModal();
+      })
+      .catch((error) => {
+        toast.error("Hubo un error al enviar la reserva. Inténtalo de nuevo.");
+        console.error("Error:", error);
       });
   };
 
   return (
     <>
+      {/* Toastify Container */}
+      <ToastContainer position="top-right" autoClose={3000} />
+
       {/* Grid de tarjetas */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
         {items.map((item, index) => (
