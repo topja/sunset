@@ -20,7 +20,7 @@ describe("Tabs Component", () => {
     render(<Tabs tabs={mockTabs} activeTab="experiences" setActiveTab={() => {}} />);
 
     const activeTab = screen.getByText("Experiencias");
-    expect(activeTab).toHaveClass("bg-verdeOscuro text-white");
+    expect(activeTab).toHaveClass("border-verdeOscuro text-verdeOscuro");
   });
 
   it("calls setActiveTab when a tab is clicked", () => {
