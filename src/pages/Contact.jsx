@@ -52,11 +52,11 @@ const Contact = () => {
       </div> 
 
       {/* Formulario */}
-      <div className="py-12">
+      <div className="">
         
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="text-center shadow-lg p-10 border-2 border-gray-200 rounded-md">
+          <div className="text-center shadow-lg py-10 px-2 border-2 border-gray-200 rounded-md">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Contáctanos
             </h2>
@@ -178,8 +178,8 @@ const Contact = () => {
       </div>
 
       {/* Mapa */}
-      <div className="w-full mt-8">
-          <p className="mb-2 mt-2 text-center">
+      <div className="w-full">
+          <p className="mb-2 text-lg text-center">
             Reserva con nosotros en{" "}
             <a
               href="https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2" 
