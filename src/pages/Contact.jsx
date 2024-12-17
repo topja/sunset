@@ -1,7 +1,8 @@
 import { useState } from "react";
 import MailIcon from "../assets/icons/Mail.svg";
 import PhoneIcon from "../assets/icons/Phone.svg";
-import OfficeIcon from "../assets/icons/Office.svg";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState("idle");
@@ -37,17 +38,20 @@ const Contact = () => {
           number: "",
           message: "",
         });
+        toast.success("¡Gracias! Hemos recibido tu mensaje.");
       } else {
         setFormStatus("error");
+        toast.error("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
       }
     } catch {
       setFormStatus("error");
+      toast.error("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
     }
   };
 
   return (
     <div className="mt-10 mb-10 px-4 lg:px-24 lg:mt-24 lg:mb-24">
-      
+      <ToastContainer position="top-right" autoClose={3000} /> {/* Contenedor de Toastify */}
       <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white my-6 rounded-t-xl">
       </div> 
 
@@ -163,16 +167,7 @@ const Contact = () => {
               >
                 {formStatus === "loading" ? "Enviando..." : "Enviar Mensaje"}
               </button>
-                    {/* Mensaje de estado */}
-                {formStatus === "success" && (
-                  <p className="mt-4 text-green-600">¡Gracias! Hemos recibido tu mensaje.</p>
-                )}
-                {formStatus === "error" && (
-                  <p className="mt-4 text-red-600">Ocurrió un error. Inténtalo de nuevo.</p>
-                )}
             </form>
-             
-          
           </div>
         </div>
       </div>
