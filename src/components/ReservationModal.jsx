@@ -10,10 +10,13 @@ const ReservationModal = ({
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-96">
         <h2 className="text-xl font-bold mb-4">Completa tu Reserva</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" role="form" >
           <div>
-            <label className="block text-gray-700">Nombre</label>
+            <label htmlFor="name" className="block text-gray-700">
+              Nombre
+            </label>
             <input
+              id="name"
               type="text"
               name="name"
               value={formData.name}
@@ -23,8 +26,11 @@ const ReservationModal = ({
             />
           </div>
           <div>
-            <label className="block text-gray-700">Correo Electrónico</label>
+            <label htmlFor="email" className="block text-gray-700">
+              Correo Electrónico
+            </label>
             <input
+              id="email"
               type="email"
               name="email"
               value={formData.email}
@@ -34,8 +40,11 @@ const ReservationModal = ({
             />
           </div>
           <div>
-            <label className="block text-gray-700">Teléfono</label>
+            <label htmlFor="phone" className="block text-gray-700">
+              Teléfono
+            </label>
             <input
+              id="phone"
               type="text"
               name="phone"
               value={formData.phone}
@@ -45,10 +54,11 @@ const ReservationModal = ({
             />
           </div>
           <div>
-            <label className="block text-gray-700">
+            <label htmlFor="message" className="block text-gray-700">
               Deja un mensaje si quieres que consideremos algún cambio
             </label>
             <textarea
+              id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
