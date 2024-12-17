@@ -11,7 +11,7 @@ const Banner = () => {
 
       {/* Contenido Central */}
       <div className="relative flex flex-col justify-center items-center h-full text-left px-4 md:px-12 lg:px-24 gap-2">
-        <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">
+        <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">
           Limpia tu cuerpo, sana tu alma
         </h1>
         <p className="text-white font-inter font-bold text-base md:text-lg lg:text-xl">
