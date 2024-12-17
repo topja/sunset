@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ReserveIcon from "../assets/icons/Reserve.svg";
 
 const ReservationModal = ({
   formData,
@@ -7,9 +8,10 @@ const ReservationModal = ({
   handleSubmit,
 }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-        <h2 className="text-xl font-bold mb-4">Completa tu Reserva</h2>
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-1/3">
+        <img src={ReserveIcon} alt="Reserve" className="h-20 w-20 p-2 rounded-full bg-teal-100 m-auto" />
+        <h2 className="text-xl text-center font-bold mb-4 mt-4">Completa tu Reserva</h2>
         <form onSubmit={handleSubmit} className="space-y-4" role="form" >
           <div>
             <label htmlFor="name" className="block text-gray-700">
@@ -66,20 +68,21 @@ const ReservationModal = ({
               className="w-full p-2 border rounded"
             ></textarea>
           </div>
-          <div className="flex justify-between">
-            <button
-              type="button"
-              onClick={handleCloseModal}
-              className="py-2 px-4 bg-gray-400 text-white rounded-md"
-            >
-              Cancelar
-            </button>
+          <div className="flex justify-center flex-col lg:flex-row gap-3">
             <button
               type="submit"
-              className="py-2 px-4 bg-verdeOscuro text-white rounded-md hover:bg-pink-200 transition-all"
+              className="py-2 px-4 lg:w-44 bg-verdeOscuro text-white rounded-md font-bold hover:bg-pink-200 transition-all"
             >
               Enviar
             </button>
+            <button
+              type="button"
+              onClick={handleCloseModal}
+              className="py-2 px-4 lg:w-44 border-gray-300 border-2 bg-white font-bold text-black rounded-md hover:bg-gray-100 transition-all"
+            >
+              Cancelar
+            </button>
+           
           </div>
         </form>
       </div>
