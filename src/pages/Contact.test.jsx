@@ -102,7 +102,7 @@ describe("Contact Component", () => {
     });
 
     expect(
-      await screen.findByText(/Ocurrió un error. Inténtalo de nuevo./i)
+      await screen.findByText(/Ocurrió un error al enviar el mensaje. Inténtalo de nuevo./i)
     ).toBeInTheDocument();
   });
 
