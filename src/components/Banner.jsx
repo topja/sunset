@@ -3,7 +3,7 @@ const Banner = () => {
 
   return (
     <div
-      className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full bg-cover bg-center"
+      className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full bg-cover bg-center loading-lazy"
       style={{ backgroundImage: "url('/src/assets/ElTabo5.jpg')" }}
     >
       <div className="absolute inset-0 bg-black/20"></div>

@@ -48,7 +48,7 @@ const Contact = () => {
   return (
     <div className="mt-10 mb-10 px-4 lg:px-24 lg:mt-24 lg:mb-24">
       
-      <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white py-6 rounded-t-xl">
+      <div className="bg-gradient-to-r h-20 from-verdeOscuro to-gray-800 text-white my-6 rounded-t-xl">
       </div> 
 
       {/* Formulario */}
@@ -179,7 +179,7 @@ const Contact = () => {
 
       {/* Mapa */}
       <div className="w-full">
-          <p className="mb-2 text-lg text-center">
+          <p className="mb-2 mt-8 text-lg text-center">
             Reserva con nosotros en{" "}
             <a
               href="https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2" 

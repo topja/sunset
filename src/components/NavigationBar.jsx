@@ -9,7 +9,7 @@ const NavigationBar = ({ links }) => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="flex justify-between items-center p-4 md:p-6 lg:px-24">
+      <div className="flex justify-between items-center p-4 lg:px-24">
         {/* Logo */}
         <Link to="/">
           <img src="/src/assets/icons/sunset.svg" alt="Logo" className="h-12 md:h-16" />
