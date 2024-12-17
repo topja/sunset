@@ -54,7 +54,7 @@ const Contact = () => {
       <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/src/assets/Piscina.avif')" }}>
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="text-center relative z-10 text-white px-4">
-          <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">Contact Us</h1>
+          <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">Contact Us</h1>
           <p className="text-white font-inter font-bold text-base md:text-lg lg:text-xl">
             Discover who we are and what drives us to provide exceptional experiences.
           </p>
@@ -70,8 +70,8 @@ const Contact = () => {
           
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="text-center shadow-lg py-10 px-2 border-2 border-gray-200 rounded-md">
-              <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl font-agbalumo">
+            <div className="text-center font-inter shadow-lg py-10 px-2 border-2 border-gray-200 rounded-md">
+              <h2 className="text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl font-agbalumo">
                 Contáctanos
               </h2>
               <p className="mt-2 text-lg text-gray-600">
@@ -80,18 +80,18 @@ const Contact = () => {
               <div className="flex justify-center gap-10 mt-10">
                 <div className="flex flex-col items-center gap-2">
                   <img src={MailIcon} alt="Mail" className="h-10 w-10 p-2 rounded-full border-gray-400 border" />
-                  <p className="font-bold">Correo</p>
+                  
                   <p>info@example.com</p>
                 </div>
                 <div className="flex flex-col items-center gap-2">
                   <img src={PhoneIcon} alt="Phone" className="h-10 w-10 p-2 rounded-full border-gray-400 border" />
-                  <p className="font-bold">Teléfono</p>
+                  
                   <p>+56 123 456 789</p>
                 </div>
               </div>
             </div>
             {/* Formulario */}
-            <div className="bg-gray-800 text-white p-6 rounded-md shadow-md">
+            <div className="bg-gray-800 font-inter text-white p-6 rounded-md shadow-md">
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -184,7 +184,7 @@ const Contact = () => {
 
         {/* Mapa */}
         <div className="w-full">
-            <p className="mb-2 mt-8 text-lg text-center">
+            <h2 className="mb-2 font-inter mt-8 text-lg text-center">
               Reserva con nosotros en{" "}
               <a
                 href="https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2" 
@@ -194,7 +194,7 @@ const Contact = () => {
               >
                 Airbnb
               </a>
-            </p>
+            </h2>
             <iframe
               title="Ubicación"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26081.5143879394!2d-71.6683081236221!3d-33.457312586493494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662160ac9bd0e47%3A0x147352da12254861!2sPlaza%20El%20Tabo!5e0!3m2!1ses!2scl!4v1734368862180!5m2!1ses!2scl"

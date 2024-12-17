@@ -4,7 +4,7 @@ const Tabs = ({ tabs, activeTab, setActiveTab }) => {
   return (
     <div className="bottom-0 left-0 w-full bg-white overflow-hidden border-b border-gray-200">
       {/* Contenedor de pestañas */}
-      <div className="flex overflow-x-auto md:overflow-visible scrollbar-hide space-x-4 pl-4 pr-4 justify-start md:justify-center">
+      <div className="font-inter flex overflow-x-auto md:overflow-visible scrollbar-hide space-x-4 pl-4 pr-4 justify-start md:justify-center">
         {tabs.map((tab) => (
           <button
             key={tab.id}
