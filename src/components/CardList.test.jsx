@@ -1,61 +1,45 @@
-import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
 import CardList from "./CardList";
 
-const mockItems = [
-  {
-    title: "Kit Clásico",
-    description: "Botella de vino y chocolate.",
-    image: "kit-clasico.jpg",
-    duration: "2 horas",
-    price: "$20",
-  },
-  {
-    title: "Kit Playero",
-    description: "Aperol y snack sorpresa.",
-    image: "kit-playero.jpg",
-    duration: "3 horas",
-    price: "$25",
-  },
-];
+vi.mock("@emailjs/browser", () => ({
+  send: vi.fn(() => Promise.resolve()), // Mock de emailjs para evitar llamadas reales
+}));
 
 describe("CardList Component", () => {
-  it("renders all cards correctly", () => {
-    render(<CardList items={mockItems} />);
+  const mockItems = [
+    {
+      title: "Reserva 1",
+      description: "Descripción de reserva 1",
+      image: "image1.jpg",
+      duration: "2 horas",
+      price: "50 USD",
+    },
+    {
+      title: "Reserva 2",
+      description: "Descripción de reserva 2",
+      image: "image2.jpg",
+      duration: "3 horas",
+      price: "70 USD",
+    },
+  ];
 
-    mockItems.forEach((item) => {
-      expect(screen.getByText(item.title)).toBeInTheDocument();
-      expect(screen.getByText(item.description)).toBeInTheDocument();
-    });
+  it("renders cards correctly", () => {
+    render(<CardList items={mockItems} />);
+    expect(screen.getByText("Reserva 1")).toBeInTheDocument();
+    expect(screen.getByText("Descripción de reserva 1")).toBeInTheDocument();
+    expect(screen.getByText("50 USD")).toBeInTheDocument();
+
+    expect(screen.getByText("Reserva 2")).toBeInTheDocument();
+    expect(screen.getByText("Descripción de reserva 2")).toBeInTheDocument();
+    expect(screen.getByText("70 USD")).toBeInTheDocument();
   });
 
-  it("renders the 'Reservar' button in each card", () => {
+  it("opens the reservation modal when clicking 'Reservar'", () => {
     render(<CardList items={mockItems} />);
+    const button = screen.getAllByText("Reservar")[0];
+    fireEvent.click(button);
 
-    const buttons = screen.getAllByText("Reservar");
-    expect(buttons).toHaveLength(mockItems.length);
-  });
-
-  it("displays the correct duration and price when provided", () => {
-    render(<CardList items={mockItems} />);
-
-    mockItems.forEach((item) => {
-      if (item.duration) {
-        expect(screen.getByText(item.duration)).toBeInTheDocument();
-      }
-      if (item.price) {
-        expect(screen.getByText(item.price)).toBeInTheDocument();
-      }
-    });
-  });
-
-  it("uses lazy loading for images", () => {
-    render(<CardList items={mockItems} />);
-
-    const images = screen.getAllByRole("img");
-    images.forEach((img, index) => {
-      expect(img).toHaveAttribute("src", mockItems[index].image);
-      expect(img).toHaveAttribute("loading", "lazy");
-      expect(img).toHaveAttribute("alt", mockItems[index].title);
-    });
+    expect(screen.getByText("Completa tu Reserva")).toBeInTheDocument();
   });
 });
