@@ -46,24 +46,12 @@ const CardList = ({ items }) => {
 
     // Enviar correo al cliente
     emailjs
-      .send(
-        "service_5ba4aea", // Service ID
-        "template_gyhrm9d", // Plantilla para el cliente
-        templateParams,
-        "VEdUEvObsOGRosT3B" // Public Key
-      )
-      .then(() => {
-        console.log("Correo enviado al cliente.");
-      });
+      .send("service_5ba4aea", "template_gyhrm9d", templateParams, "VEdUEvObsOGRosT3B")
+      .then(() => console.log("Correo enviado al cliente."));
 
     // Enviar correo al usuario
     emailjs
-      .send(
-        "service_5ba4aea", // Service ID
-        "template_vau954s", // Plantilla para el usuario
-        templateParams,
-        "VEdUEvObsOGRosT3B" // Public Key
-      )
+      .send("service_5ba4aea", "template_vau954s", templateParams, "VEdUEvObsOGRosT3B")
       .then(() => {
         toast.success("Reserva enviada correctamente. Revisa tu correo electrónico.");
         handleCloseModal();
@@ -84,18 +72,20 @@ const CardList = ({ items }) => {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col shadow-md rounded-md overflow-hidden"
+            className="flex flex-col h-full shadow-lg rounded-md overflow-hidden bg-white"
           >
             {/* Imagen */}
-            <img
-              src={item.image}
-              alt={item.title}
-              loading="lazy"
-              className="w-full h-48 md:h-56 lg:h-64 object-cover"
-            />
+            <div className="h-48 md:h-56 lg:h-64 w-full">
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
 
             {/* Contenido */}
-            <div className="p-4 md:p-6 lg:p-8 flex flex-col justify-between bg-white h-full">
+            <div className="bg-gray-50 flex-1 flex flex-col justify-between p-4 md:p-6 lg:p-8">
               <div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
@@ -105,7 +95,7 @@ const CardList = ({ items }) => {
 
               {/* Botón de Reserva */}
               <button
-                className="mt-4 py-2 px-4 bg-verdeOscuro text-white font-medium rounded-md hover:bg-pink-200 hover:text-pink-400 transition-all"
+                className="bg-amber-500 hover:bg-amber-600 mt-2 text-white font-medium px-4 py-2 rounded-lg transition font-inter duration-300"
                 onClick={() => handleOpenModal(item)}
               >
                 Reservar
