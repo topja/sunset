@@ -1,24 +1,31 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const MobileMenu = ({ links, isOpen }) => {
-  if (!isOpen) return null; 
+const MobileMenu = ({ links, isOpen, closeMenu }) => {
+  if (!isOpen) return null;
 
   return (
-    <nav className="md:hidden bg-white shadow-md">
-      <ul className="flex flex-row justify-center space-x-4 p-4">
-        {links.map((link) => (
-          <li key={link.label}>
-            <Link
-              to={link.href}
-              className="block text-gray-900 font-bold hover:text-customBlue"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="fixed inset-0 bg-black/50 z-40" onClick={closeMenu}>
+      {/* Menú */}
+      <nav
+        className="absolute top-0 left-0 w-3/4 h-full bg-white shadow-md z-50"
+        onClick={(e) => e.stopPropagation()} // Evita que el clic dentro del menú cierre el fondo
+      >
+        <ul className="flex flex-col space-y-4 p-6">
+          {links.map((link) => (
+            <li key={link.label}>
+              <Link
+                to={link.href}
+                className="block text-gray-900 font-bold hover:text-customBlue"
+                onClick={closeMenu} // Cierra el menú al hacer clic en un enlace
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
 
@@ -30,6 +37,7 @@ MobileMenu.propTypes = {
     })
   ).isRequired,
   isOpen: PropTypes.bool.isRequired,
+  closeMenu: PropTypes.func.isRequired,
 };
 
 export default MobileMenu;
