@@ -1,0 +1,36 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install  # Instala las dependencias
+    build:
+      commands:
+        - npm run build  # Construye la app usando el script de Vite
+  artifacts:
+    baseDirectory: dist  # Carpeta donde Vite genera los archivos de build
+    files:
+      - '**/*'  # Incluye todos los archivos en la carpeta dist
+  cache:
+    paths: []  
+  customHeaders:
+    - pattern: '**/*.js'
+      headers:
+        - key: "Content-Type"
+          value: "application/javascript"
+    - pattern: '**/*.css'
+      headers:
+        - key: "Content-Type"
+          value: "text/css"
+    - pattern: '**/*.woff2'
+      headers:
+        - key: "Content-Type"
+          value: "font/woff2"
+
+redirects:
+  - source: /<*assets/*>
+    target: /<*assets/*>
+    status: 200  # Reescribe archivos estáticos correctamente
+  - source: /<*>
+    target: /index.html
+    status: 200  # Reescribe todo lo demás a index.html (para SPA)
