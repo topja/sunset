@@ -28,9 +28,11 @@ frontend:
           value: "font/woff2"
 
 redirects:
-  - source: /<*assets/*>
-    target: /<*assets/*>
-    status: 200  # Reescribe archivos estáticos correctamente
-  - source: /<*>
+  - source: /assets/<*>       # Asegura que todo lo de /assets sea servido correctamente
+    target: /assets/<*>       # No redirige a index.html
+    status: 200
+
+  - source: /<*>              # Redirige todo lo demás a index.html
     target: /index.html
-    status: 200  # Reescribe todo lo demás a index.html (para SPA)
+    status: 200
+
