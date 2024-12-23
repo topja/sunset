@@ -3,6 +3,7 @@ import MailIcon from "../assets/icons/Mail.svg";
 import PhoneIcon from "../assets/icons/Phone.svg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PiscinaImage from "../assets/Piscina.avif";
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState("idle");
@@ -51,7 +52,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/src/assets/Piscina.avif')" }}>
+      <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${PiscinaImage})` }}>
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="text-center relative z-10 text-white px-4">
           <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">Contact Us</h1>

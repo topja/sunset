@@ -3,16 +3,19 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import MenuIcon from "../assets/icons/Menu.svg";
 import MobileMenu from "./MobileMenu";
+import Logo from "../assets/icons/sunset.svg";
 
 const NavigationBar = ({ links }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div className="flex justify-between items-center p-4 lg:px-24">
         {/* Logo */}
         <Link to="/">
-          <img src="/src/assets/icons/sunset.svg" alt="Logo" className="h-12 md:h-16" />
+          <img src={Logo} alt="Logo" className="h-12 md:h-16" />
         </Link>
 
         {/* Links - Desktop */}
@@ -38,7 +41,7 @@ const NavigationBar = ({ links }) => {
       </div>
 
       {/* Menú desplegable en Mobile */}
-      <MobileMenu links={links} isOpen={isMenuOpen} />
+      <MobileMenu links={links} isOpen={isMenuOpen} closeMenu={closeMenu} />
     </header>
   );
 };

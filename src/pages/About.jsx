@@ -1,10 +1,12 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import AtardecerImage from '../assets/Atardecer.avif';
+import AboutUsImage from '../assets/AboutUs.avif';
 
 const About = () => {
   return (
     <section className="bg-gray-50">
       {/* Hero Section */}
-      <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/src/assets/Atardecer.avif')" }}>
+      <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${AtardecerImage})` }} >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">About Us</h1>
@@ -36,7 +38,7 @@ const About = () => {
           {/* Image Section */}
           <div className="relative">
             <img
-              src="/src/assets/AboutUs.avif"
+              src={AboutUsImage}
               alt="Our Story"
               className="rounded-lg shadow-lg w-full object-cover h-96"
             />
