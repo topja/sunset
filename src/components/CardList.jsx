@@ -95,7 +95,7 @@ const CardList = ({ items }) => {
 
               {/* Botón de Reserva */}
               <button
-                className="bg-amber-500 hover:bg-amber-600 mt-2 text-white font-medium px-4 py-2 rounded-lg transition font-inter duration-300"
+                className="bg-Tan hover:bg-Gold mt-2 text-white font-medium px-4 py-2 rounded-lg transition font-inter duration-300"
                 onClick={() => handleOpenModal(item)}
               >
                 Reservar
