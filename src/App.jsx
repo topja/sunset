@@ -9,10 +9,10 @@ import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
+    { label: "Inicio", href: "/" },
+    { label: "Sobre Nosotros", href: "/about" },
+    { label: "Blog", href: "#" },
+    { label: "Contáctanos", href: "/contact" },
   ];
 
   return (
