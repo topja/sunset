@@ -11,9 +11,9 @@ const WhatsAppButton = ({ phoneNumber }) => {
     <button
       onClick={handleClick}
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-4 right-4 transition duration-300"
+      className="fixed bottom-4 right-4 lg:bottom-6 lg:right-6 transition duration-300"
     >
-      <img src={WhatsappIcon} alt="WhatsApp" className="w-12 h-12" />
+      <img src={WhatsappIcon} alt="WhatsApp" className="w-12 h-12 lg:w-16 lg:h-16" />
     </button>
   );
 };
