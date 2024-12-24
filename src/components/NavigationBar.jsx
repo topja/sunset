@@ -11,7 +11,7 @@ const NavigationBar = ({ links }) => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <header className="fixed top-0 left-0 w-full bg-Charcoal shadow-md z-50">
       <div className="flex justify-between items-center p-4 lg:px-24">
         {/* Logo */}
         <Link to="/">
@@ -24,7 +24,7 @@ const NavigationBar = ({ links }) => {
             <Link
               key={link.label}
               to={link.href}
-              className="text-gray-700 hover:text-customBlue font-medium"
+              className="text-Gold hover:text-Tan font-medium"
             >
               {link.label}
             </Link>

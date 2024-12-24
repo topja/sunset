@@ -9,10 +9,10 @@ const Tabs = ({ tabs, activeTab, setActiveTab }) => {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`relative flex-shrink-0 py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 font-medium whitespace-nowrap transition-colors duration-200 ease-out 
+            className={`relative flex-shrink-0 py-2 px-4 md:py-3 md:px-6 lg:py-4 lg:px-8 font-bold whitespace-nowrap transition-colors duration-200 ease-out 
               ${
                 activeTab === tab.id
-                  ? "border-b-2 border-verdeOscuro text-verdeOscuro"
+                  ? "border-b-2 border-Charcoal text-Charcoal"
                   : "border-b-2 border-transparent text-gray-700 hover:text-gray-900"
               }`}
           >
