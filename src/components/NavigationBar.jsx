@@ -19,7 +19,7 @@ const NavigationBar = ({ links }) => {
         </Link>
 
         {/* Links - Desktop */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6" aria-label="Desktop Navigation">
           {links.map((link) => (
             <Link
               key={link.label}
@@ -41,7 +41,7 @@ const NavigationBar = ({ links }) => {
       </div>
 
       {/* Menú desplegable en Mobile */}
-      <MobileMenu links={links} isOpen={isMenuOpen} closeMenu={closeMenu} />
+      <MobileMenu links={links} isOpen={isMenuOpen} closeMenu={closeMenu} aria-label="Mobile Navigation" />
     </header>
   );
 };
