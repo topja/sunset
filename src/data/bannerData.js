@@ -10,9 +10,9 @@ import KitPisco from "../assets/KitPisco.jpg";
 
 export const tabs = [
   { id: "kits", label: "Kit Bienvenida" },
-  { id: "experiences", label: "Experiencias" },
+ /*  { id: "experiences", label: "Experiencias" },
   { id: "food", label: "Gastronimía" },
-  { id: "sports", label: "Deporte" },
+  { id: "sports", label: "Deporte" }, */
 ];
 
 export const cards = {
