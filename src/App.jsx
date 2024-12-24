@@ -5,6 +5,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const navLinks = [
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <WhatsAppButton phoneNumber="+56991748857" />
     </>
   );
 }
