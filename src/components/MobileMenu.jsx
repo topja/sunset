@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import CloseIcon from "../assets/icons/Close.svg"; 
+import CloseIcon from "../assets/icons/Close.svg";
 
 const MobileMenu = ({ links, isOpen, closeMenu }) => {
+  if (!isOpen) return null; // No renderizar si isOpen es false
+
   return (
     <div
-      className={`fixed inset-0 z-40 transition-all duration-300 ${
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}
+      className="fixed inset-0 z-40 transition-all duration-300 opacity-100 visible"
       onClick={closeMenu}
     >
       {/* Overlay */}
@@ -15,14 +15,12 @@ const MobileMenu = ({ links, isOpen, closeMenu }) => {
 
       {/* Menu Container */}
       <nav
-        className={`absolute top-0 left-0 h-full w-3/4 bg-white shadow-md transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className="absolute top-0 left-0 h-full w-3/4 bg-Charcoal shadow-md transform translate-x-0 transition-transform duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <div className="flex justify-end p-4">
-          <button onClick={closeMenu} className="text-gray-600 hover:text-red-500">
+          <button onClick={closeMenu} >
             <img src={CloseIcon} alt="Cerrar" className="h-6 w-6" />
           </button>
         </div>
@@ -33,7 +31,7 @@ const MobileMenu = ({ links, isOpen, closeMenu }) => {
             <li key={link.label}>
               <Link
                 to={link.href}
-                className="block ml-3 py-3 text-2xl font-inter font-bold text-gray-800 hover:text-amber-500 transition-all"
+                className="block ml-3 py-3 text-2xl font-inter font-bold text-Gold hover:text-Tan transition-all"
                 onClick={closeMenu}
               >
                 {link.label}
@@ -47,7 +45,7 @@ const MobileMenu = ({ links, isOpen, closeMenu }) => {
 
         {/* Footer (Opcional) */}
         <div className="absolute bottom-6 left-6">
-          <p className="text-sm text-gray-500">© 2024 Sunset Experience</p>
+          <p className="text-sm text-Gold">© 2024 Sunset Experience</p>
         </div>
       </nav>
     </div>
