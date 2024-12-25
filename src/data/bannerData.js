@@ -10,9 +10,7 @@ import KitPisco from "../assets/KitPisco.jpg";
 
 export const tabs = [
   { id: "kits", label: "Kit Bienvenida" },
- /*  { id: "experiences", label: "Experiencias" },
-  { id: "food", label: "Gastronimía" },
-  { id: "sports", label: "Deporte" }, */
+  { id: "experiences", label: "Experiencias" },
 ];
 
 export const cards = {
@@ -33,7 +31,7 @@ export const cards = {
       image: KitPisco,
     },
   ],
-  experiences: [
+  relax: [
     {
       title: "Tour a la casa de Pablo Neruda",
       description: "Visita guiada a sitios históricos.",
