@@ -15,6 +15,8 @@ const Cards = () => {
     email: "",
     phone: "",
     message: "",
+    guests: 1,
+    arrivalDate: new Date(),
   });
 
   const handleOpenModal = (item) => {
@@ -25,11 +27,11 @@ const Cards = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedItem(null);
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", message: "", guests: 1, arrivalDate: new Date() });
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const updateFormField = (field, value) => {
+    setFormData({ ...formData, [field]: value });
   };
 
   const handleReservation = async (e) => {
@@ -44,6 +46,8 @@ const Cards = () => {
       user_email: formData.email,
       user_phone: formData.phone,
       user_message: formData.message || "Sin mensaje adicional",
+      guests: formData.guests,
+      arrivalDate: formData.arrivalDate.toISOString().split("T")[0], // Formato YYYY-MM-DD
     };
 
     const result = await sendReservation(templateParams);
@@ -62,7 +66,7 @@ const Cards = () => {
 
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <div className="bg-white px-6 md:px-8 lg:px-24 mb-12">
+      <div className="bg-white px-6 md:px-8 lg:px-24 mb-12 mt-10">
         {activeTab === "kits" ? (
           <Category
             title="Kit de Bienvenida"
@@ -90,7 +94,7 @@ const Cards = () => {
       {isModalOpen && (
         <ReservationModal
           formData={formData}
-          handleChange={handleChange}
+          updateFormField={updateFormField}
           handleCloseModal={handleCloseModal}
           handleSubmit={handleReservation}
         />
