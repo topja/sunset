@@ -97,11 +97,11 @@ const ReservationModal = ({
           <div>
             <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={esLocale}>
               <DatePicker
-                label="Selecciona una fecha"
+                label="Fecha de Llegada"
                 value={formData.arrivalDate}
                 onChange={(date) => updateFormField("arrivalDate", date)}
                 minDate={new Date()}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                textField={(params) => <TextField {...params} fullWidth />}
               />
             </LocalizationProvider>
           </div>
@@ -125,7 +125,6 @@ const ReservationModal = ({
     </div>
   );
 };
-
 
 ReservationModal.propTypes = {
   formData: PropTypes.shape({
