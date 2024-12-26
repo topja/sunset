@@ -87,9 +87,14 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/experiences" className="hover:text-white transition-colors">
-                    Experiencias
-                  </Link>
+                <Link
+                  to="/"
+                  state={{ activeTab: "experiences" }} // Pasamos el estado para la pestaña activa
+                  className="hover:text-white transition-colors"
+                >
+                  Experiencias
+                </Link>
+
                 </li>
               </ul>
             </div>
@@ -119,8 +124,8 @@ const Footer = () => {
               <h5 className="text-lg font-bold text-white mb-2">Experiencias</h5>
               <ul>
                 <li>
-                  <Link to="/experiences/cultural" className="hover:text-white transition-colors">
-                    Culturales
+                  <Link to="/experiences/relax" className="hover:text-white transition-colors">
+                    Relajación
                   </Link>
                 </li>
                 <li>
