@@ -87,13 +87,6 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                <Link
-                  to="/"
-                  state={{ activeTab: "experiences" }} // Pasamos el estado para la pestaña activa
-                  className="hover:text-white transition-colors"
-                >
-                  Experiencias
-                </Link>
 
                 </li>
               </ul>

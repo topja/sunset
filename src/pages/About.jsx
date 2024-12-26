@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import AtardecerImage from '../assets/Atardecer.avif';
 import AboutUsImage from '../assets/AboutUs.avif';
@@ -18,7 +18,7 @@ const About = () => {
       </div>
 
       {/* About Content */}
-      <div className="container mx-auto px-6 py-12 md:py-20">
+      <div className="container mx-auto px-6 lg:px-14 py-12 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Text Section */}
           <div>
@@ -31,13 +31,7 @@ const About = () => {
             <p className="text-gray-600 leading-relaxed font-inter mb-6">
               Nuestro objetivo es compartir esta serenidad contigo a través de experiencias personalizadas, vistas impresionantes y momentos que quedarán contigo para siempre.
             </p>
-            <Link
-              to="/"
-              state={{ activeTab: "experiences" }} // Enviar estado para activar la pestaña
-              className="bg-Tan hover:bg-Gold text-white font-medium px-6 py-3 rounded-lg transition font-inter duration-300"
-            >
-              Explorar Experiencias
-            </Link>
+            
 
           </div>
 
@@ -56,7 +50,7 @@ const About = () => {
       </div>
 
       {/* Key Features Section */}
-      <div className="bg-white py-12 md:py-20">
+      <div className="bg-white lg:px-14 py-12 md:py-20">
         <div className="container mx-auto px-6">
           <h3 className="text-2xl md:text-3xl font-bold text-center text-Charcoal mb-8 font-agbalumo">
             ¿Por qué Elegirnos?
