@@ -12,7 +12,7 @@ const NavigationBar = ({ links }) => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-Charcoal shadow-md z-50">
-      <div className="flex justify-between items-center p-4 lg:px-24">
+      <div className="flex justify-between items-center p-4 md:px-8 lg:px-24">
         {/* Logo */}
         <Link to="/">
           <img src={Logo} alt="Logo" className="h-12 md:h-16" />
