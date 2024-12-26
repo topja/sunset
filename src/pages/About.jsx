@@ -5,7 +5,7 @@ import AboutUsImage from '../assets/AboutUs.avif';
 
 const About = () => {
   return (
-    <section className="bg-gray-50">
+    <section className="">
       {/* Hero Section */}
       <div className="relative mt-24 md:mt-32 mx-4 md:mx-8 lg:mx-24 h-[250px] md:h-[300px] bg-cover bg-center flex items-center justify-center rounded-2xl" style={{ backgroundImage: `url(${AtardecerImage})` }} >
         <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
