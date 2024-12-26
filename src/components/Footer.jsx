@@ -149,7 +149,7 @@ const Footer = () => {
             <div>
               <h5 className="text-lg font-bold text-white mb-2">Contacto</h5>
               <p>Email: info@sunsetexperience.cl</p>
-              <p>Teléfono: +56 9 1234 5678</p>
+              <p>Teléfono: +56 9 9174 8857</p>
             </div>
           </div>
         </section>
