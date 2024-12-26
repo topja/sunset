@@ -52,8 +52,8 @@ const Contact = () => {
 
   return (
     <>
-      <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${PiscinaImage})` }}>
-        <div className="absolute inset-0 bg-black/50"></div>
+      <div className="relative mt-24 md:mt-32 mx-4 md:mx-8 lg:mx-24 h-[250px] md:h-[300px] bg-cover bg-center flex items-center justify-center rounded-2xl" style={{ backgroundImage: `url(${PiscinaImage})` }}>
+        <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
         <div className="text-center relative z-10 text-white px-4">
           <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">Contáctanos</h1>
           <p className="text-white font-inter font-bold text-base md:text-lg lg:text-xl">

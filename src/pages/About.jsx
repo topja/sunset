@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import AtardecerImage from '../assets/Atardecer.avif';
 import AboutUsImage from '../assets/AboutUs.avif';
@@ -6,8 +7,8 @@ const About = () => {
   return (
     <section className="bg-gray-50">
       {/* Hero Section */}
-      <div className="relative w-full h-[400px] md:h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${AtardecerImage})` }} >
-        <div className="absolute inset-0 bg-black/50"></div>
+      <div className="relative mt-24 md:mt-32 mx-4 md:mx-8 lg:mx-24 h-[250px] md:h-[300px] bg-cover bg-center flex items-center justify-center rounded-2xl" style={{ backgroundImage: `url(${AtardecerImage})` }} >
+        <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-agbalumo mb-3">Sobre Nosotros</h1>
           <p className="text-white font-inter font-bold text-base md:text-lg lg:text-xl">
@@ -30,9 +31,13 @@ const About = () => {
             <p className="text-gray-600 leading-relaxed font-inter mb-6">
               Nuestro objetivo es compartir esta serenidad contigo a través de experiencias personalizadas, vistas impresionantes y momentos que quedarán contigo para siempre.
             </p>
-            <button className="bg-Tan hover:bg-Gold text-white font-medium px-6 py-3 rounded-lg transition font-inter duration-300">
+            <Link
+              to="/"
+              state={{ activeTab: "experiences" }} // Enviar estado para activar la pestaña
+              className="bg-Tan hover:bg-Gold text-white font-medium px-6 py-3 rounded-lg transition font-inter duration-300"
+            >
               Explorar Experiencias
-            </button>
+            </Link>
 
           </div>
 
