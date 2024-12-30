@@ -5,13 +5,14 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
+    { label: "Inicio", href: "/" },
+    { label: "Sobre Nosotros", href: "/about" },
+    { label: "Blog", href: "#" },
+    { label: "Contáctanos", href: "/contact" },
   ];
 
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <WhatsAppButton phoneNumber="+56991748857" />
     </>
   );
 }

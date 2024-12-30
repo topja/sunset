@@ -87,9 +87,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/experiences" className="hover:text-white transition-colors">
-                    Experiencias
-                  </Link>
+
                 </li>
               </ul>
             </div>
@@ -119,8 +117,8 @@ const Footer = () => {
               <h5 className="text-lg font-bold text-white mb-2">Experiencias</h5>
               <ul>
                 <li>
-                  <Link to="/experiences/cultural" className="hover:text-white transition-colors">
-                    Culturales
+                  <Link to="/experiences/relax" className="hover:text-white transition-colors">
+                    Relajación
                   </Link>
                 </li>
                 <li>
@@ -144,7 +142,7 @@ const Footer = () => {
             <div>
               <h5 className="text-lg font-bold text-white mb-2">Contacto</h5>
               <p>Email: info@sunsetexperience.cl</p>
-              <p>Teléfono: +56 9 1234 5678</p>
+              <p>Teléfono: +56 9 9174 8857</p>
             </div>
           </div>
         </section>

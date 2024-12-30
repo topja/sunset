@@ -11,20 +11,20 @@ const NavigationBar = ({ links }) => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="flex justify-between items-center p-4 lg:px-24">
+    <header className="fixed top-0 left-0 w-full bg-Charcoal shadow-md z-50">
+      <div className="flex justify-between items-center p-4 md:px-8 lg:px-24">
         {/* Logo */}
         <Link to="/">
           <img src={Logo} alt="Logo" className="h-12 md:h-16" />
         </Link>
 
         {/* Links - Desktop */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6" aria-label="Desktop Navigation">
           {links.map((link) => (
             <Link
               key={link.label}
               to={link.href}
-              className="text-gray-700 hover:text-customBlue font-medium"
+              className="text-Gold hover:text-Tan font-medium"
             >
               {link.label}
             </Link>
@@ -41,7 +41,7 @@ const NavigationBar = ({ links }) => {
       </div>
 
       {/* Menú desplegable en Mobile */}
-      <MobileMenu links={links} isOpen={isMenuOpen} closeMenu={closeMenu} />
+      <MobileMenu links={links} isOpen={isMenuOpen} closeMenu={closeMenu} aria-label="Mobile Navigation" />
     </header>
   );
 };

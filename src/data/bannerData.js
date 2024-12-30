@@ -11,8 +11,6 @@ import KitPisco from "../assets/KitPisco.jpg";
 export const tabs = [
   { id: "kits", label: "Kit Bienvenida" },
   { id: "experiences", label: "Experiencias" },
-  { id: "food", label: "Gastronimía" },
-  { id: "sports", label: "Deporte" },
 ];
 
 export const cards = {
@@ -33,20 +31,20 @@ export const cards = {
       image: KitPisco,
     },
   ],
-  experiences: [
+  relax: [
     {
       title: "Tour a la casa de Pablo Neruda",
       description: "Visita guiada a sitios históricos.",
       image: CasaNeruda,
       duration: "Duración: 2 horas",
-      price: "Precio: 20.000 CLP",
+      price: "Precio: 20.000 CLP/Persona",
     },
     {
       title: "Sesión de Reiki",
       description: "Bienestar y energía personal.",
       image: Reiki,
       duration: "Duración: 1 hora",
-      price: "Precio: 10.000 CLP",
+      price: "Precio: 10.000 CLP/Persona",
     },
   ],
   food: [
@@ -54,11 +52,15 @@ export const cards = {
       title: "Cena en el Restaurante",
       description: "Menú de 3 tiempos.",
       image: Restaurant,
+      duration: "Duración: 2 horas",
+      price: "Precio: 10.000 CLP/Persona",
     },
     {
       title: "Picnic en la playa",
       description: "Cesta con vino y quesos.",
       image: Picnic,
+      duration: "Duración: 2 horas",
+      price: "Precio: 10.000 CLP/Persona",
     },
   ],
   sports: [
@@ -67,14 +69,14 @@ export const cards = {
       description: "Instructor y tabla incluidos.",
       image: Surf,
       duration: "Duración: 2 horas",
-      price: "Precio: 20.000 CLP",
+      price: "Precio: 15.000 CLP/Persona",
     },
     {
       title: "Tour en bicicleta",
       description: "Recorrido por la ciudad.",
       image: Bicicleta,
       duration: "Duración: 2 horas",
-      price: "Precio: 15.000 CLP",
+      price: "Precio: 15.000 CLP/Persona",
     },
   ],
 };

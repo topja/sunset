@@ -3,43 +3,77 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import ReservationModal from "./ReservationModal";
 
 describe("ReservationModal Component", () => {
-  const mockProps = {
-    formData: {
-      name: "John Doe",
-      email: "john@example.com",
-      phone: "123456789",
-      message: "Quiero un cambio en la reserva",
-    },
-    handleChange: vi.fn(),
-    handleCloseModal: vi.fn(),
-    handleSubmit: vi.fn(),
+  const mockFormData = {
+    name: "John Doe",
+    email: "john@example.com",
+    phone: "123456789",
+    guests: 2,
+    arrivalDate: new Date(),
   };
 
+  const mockUpdateFormField = vi.fn();
+  const mockHandleCloseModal = vi.fn();
+  const mockHandleSubmit = vi.fn((e) => e.preventDefault());
+
   it("renders the form fields correctly", () => {
-    render(<ReservationModal {...mockProps} />);
-    expect(screen.getByLabelText("Nombre")).toBeInTheDocument();
-    expect(screen.getByLabelText("Correo Electrónico")).toBeInTheDocument();
-    expect(screen.getByLabelText("Teléfono")).toBeInTheDocument();
-    expect(
-      screen.getByLabelText(
-        "Deja un mensaje si quieres que consideremos algún cambio"
-      )
-    ).toBeInTheDocument();
+    render(
+      <ReservationModal
+        formData={mockFormData}
+        updateFormField={mockUpdateFormField}
+        handleCloseModal={mockHandleCloseModal}
+        handleSubmit={mockHandleSubmit}
+      />
+    );
+
+    expect(screen.getByLabelText("Nombre")).toHaveValue(mockFormData.name);
+    expect(screen.getByLabelText("Correo Electrónico")).toHaveValue(mockFormData.email);
+    expect(screen.getByLabelText("Teléfono")).toHaveValue(mockFormData.phone);
+    expect(screen.getByText("Número de Personas")).toBeInTheDocument();
+    expect(screen.getByLabelText("Fecha de Llegada")).toBeInTheDocument();
+  });
+
+  it("calls updateFormField when inputs change", () => {
+    render(
+      <ReservationModal
+        formData={mockFormData}
+        updateFormField={mockUpdateFormField}
+        handleCloseModal={mockHandleCloseModal}
+        handleSubmit={mockHandleSubmit}
+      />
+    );
+
+    const nameInput = screen.getByLabelText("Nombre");
+    fireEvent.change(nameInput, { target: { value: "Jane Doe" } });
+    expect(mockUpdateFormField).toHaveBeenCalledWith("name", "Jane Doe");
   });
 
   it("calls handleCloseModal when clicking 'Cancelar'", () => {
-    render(<ReservationModal {...mockProps} />);
+    render(
+      <ReservationModal
+        formData={mockFormData}
+        updateFormField={mockUpdateFormField}
+        handleCloseModal={mockHandleCloseModal}
+        handleSubmit={mockHandleSubmit}
+      />
+    );
+
     const cancelButton = screen.getByText("Cancelar");
     fireEvent.click(cancelButton);
-
-    expect(mockProps.handleCloseModal).toHaveBeenCalled();
+    expect(mockHandleCloseModal).toHaveBeenCalled();
   });
 
   it("calls handleSubmit when submitting the form", () => {
-    render(<ReservationModal {...mockProps} />);
-    const form = screen.getByRole("form");
-    fireEvent.submit(form);
+    render(
+      <ReservationModal
+        formData={mockFormData}
+        updateFormField={mockUpdateFormField}
+        handleCloseModal={mockHandleCloseModal}
+        handleSubmit={mockHandleSubmit}
+      />
+    );
 
-    expect(mockProps.handleSubmit).toHaveBeenCalled();
+    const submitButton = screen.getByText("Enviar");
+    fireEvent.click(submitButton);
+    expect(mockHandleSubmit).toHaveBeenCalled();
   });
 });

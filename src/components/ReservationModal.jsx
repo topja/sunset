@@ -1,18 +1,41 @@
 import PropTypes from "prop-types";
 import ReserveIcon from "../assets/icons/Reserve.svg";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import esLocale from "date-fns/locale/es";
+import { TextField, IconButton } from "@mui/material";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
 const ReservationModal = ({
   formData,
-  handleChange,
+  updateFormField,
   handleCloseModal,
   handleSubmit,
 }) => {
+  const incrementGuests = () => {
+    updateFormField("guests", formData.guests + 1);
+  };
+
+  const decrementGuests = () => {
+    if (formData.guests > 1) {
+      updateFormField("guests", formData.guests - 1);
+    }
+  };
+
   return (
     <div className="fixed inset-0 flex font-inter items-center justify-center bg-black bg-opacity-50 z-50 p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-1/3">
-        <img src={ReserveIcon} alt="Reserve" className="h-20 w-20 p-2 rounded-full bg-teal-100 m-auto" />
-        <h2 className="text-xl text-center font-agbalumo font-bold mb-4 mt-4">Completa tu Reserva</h2>
-        <form onSubmit={handleSubmit} className="space-y-4" role="form" >
+        <img
+          src={ReserveIcon}
+          alt="Reserve"
+          className="h-12 w-12 p-2 rounded-full bg-teal-100 m-auto"
+        />
+        <h2 className="text-Charcoal text-xl text-center font-agbalumo font-bold mb-4 mt-4">
+          Completa tu Reserva
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4" role="form">
           <div>
             <label htmlFor="name" className="block text-gray-700">
               Nombre
@@ -22,7 +45,7 @@ const ReservationModal = ({
               type="text"
               name="name"
               value={formData.name}
-              onChange={handleChange}
+              onChange={(e) => updateFormField("name", e.target.value)}
               required
               className="w-full p-2 border rounded"
             />
@@ -36,7 +59,7 @@ const ReservationModal = ({
               type="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={(e) => updateFormField("email", e.target.value)}
               required
               className="w-full p-2 border rounded"
             />
@@ -50,28 +73,42 @@ const ReservationModal = ({
               type="text"
               name="phone"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={(e) => updateFormField("phone", e.target.value)}
               required
               className="w-full p-2 border rounded"
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-gray-700">
-              Deja un mensaje si quieres que consideremos algún cambio
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="3"
-              className="w-full p-2 border rounded"
-            ></textarea>
+            <label className="block text-gray-700">Número de Personas</label>
+            <div className="flex items-center gap-4">
+              <IconButton
+                onClick={decrementGuests}
+                color="primary"
+                disabled={formData.guests <= 1}
+              >
+                <RemoveIcon />
+              </IconButton>
+              <span className="text-lg font-semibold">{formData.guests}</span>
+              <IconButton onClick={incrementGuests} color="primary">
+                <AddIcon />
+              </IconButton>
+            </div>
+          </div>
+          <div>
+            <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={esLocale}>
+              <DatePicker
+                label="Fecha de Llegada"
+                value={formData.arrivalDate}
+                onChange={(date) => updateFormField("arrivalDate", date)}
+                minDate={new Date()}
+                textField={(params) => <TextField {...params} fullWidth />}
+              />
+            </LocalizationProvider>
           </div>
           <div className="flex justify-center flex-col lg:flex-row gap-3">
             <button
               type="submit"
-              className="py-1 px-4 lg:w-44 text-white rounded-md font-bold bg-amber-500 hover:bg-amber-600 transition-all"
+              className="py-1 px-4 lg:w-44 text-white rounded-md font-bold bg-Tan hover:bg-Gold transition-all"
             >
               Enviar
             </button>
@@ -82,7 +119,6 @@ const ReservationModal = ({
             >
               Cancelar
             </button>
-           
           </div>
         </form>
       </div>
@@ -95,9 +131,10 @@ ReservationModal.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
-    message: PropTypes.string,
+    guests: PropTypes.number.isRequired,
+    arrivalDate: PropTypes.instanceOf(Date).isRequired,
   }).isRequired,
-  handleChange: PropTypes.func.isRequired,
+  updateFormField: PropTypes.func.isRequired,
   handleCloseModal: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };

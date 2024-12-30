@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 
@@ -20,17 +20,17 @@ describe("NavigationBar Component", () => {
 
   it("renders navigation links on desktop", () => {
     renderWithRouter(<NavigationBar links={mockLinks} />);
-
-    // Buscar solo los links de desktop
-    const desktopNav = screen.getByRole("navigation");
+    const desktopNav = screen.getByRole("navigation", {
+      name: "Desktop Navigation",
+    });
     mockLinks.forEach((link) => {
       expect(desktopNav).toHaveTextContent(link.label);
     });
-  });
+  });  
 
   it("shows the hamburger menu button", () => {
     renderWithRouter(<NavigationBar links={mockLinks} />);
-    const hamburgerButton = screen.getByRole("button");
+    const hamburgerButton = screen.getByAltText("Menu");
     expect(hamburgerButton).toBeInTheDocument();
   });
 });

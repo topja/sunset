@@ -24,8 +24,10 @@ describe("CardList Component", () => {
     },
   ];
 
+  const mockOnCardClick = vi.fn();
+
   it("renders cards correctly", () => {
-    render(<CardList items={mockItems} />);
+    render(<CardList items={mockItems} buttonLabel="Reservar" onCardClick={mockOnCardClick} />);
     expect(screen.getByText("Reserva 1")).toBeInTheDocument();
     expect(screen.getByText("Descripción de reserva 1")).toBeInTheDocument();
     expect(screen.getByText("50 USD")).toBeInTheDocument();
@@ -35,11 +37,11 @@ describe("CardList Component", () => {
     expect(screen.getByText("70 USD")).toBeInTheDocument();
   });
 
-  it("opens the reservation modal when clicking 'Reservar'", () => {
-    render(<CardList items={mockItems} />);
+  it("calls onCardClick when clicking the button", () => {
+    render(<CardList items={mockItems} buttonLabel="Reservar" onCardClick={mockOnCardClick} />);
     const button = screen.getAllByText("Reservar")[0];
     fireEvent.click(button);
 
-    expect(screen.getByText("Completa tu Reserva")).toBeInTheDocument();
+    expect(mockOnCardClick).toHaveBeenCalledWith(mockItems[0]);
   });
 });
