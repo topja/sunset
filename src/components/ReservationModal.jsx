@@ -26,7 +26,7 @@ const ReservationModal = ({
 
   return (
     <div className="fixed inset-0 flex font-inter items-center justify-center bg-black bg-opacity-50 z-50 p-4">
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-1/3">
+      <div className="bg-white p-6 md:px-9 lg:px-24 rounded-lg shadow-lg w-full md:w-2/3">
         <img
           src={ReserveIcon}
           alt="Reserve"
