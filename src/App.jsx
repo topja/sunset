@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ExperienceDetail from "./pages/ExperienceDetail";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const navLinks = [
@@ -17,12 +19,14 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <NavigationBar links={navLinks} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/experience/:id" element={<ExperienceDetail />} />
       </Routes>
       <Footer />
       <WhatsAppButton phoneNumber="+56991748857" />

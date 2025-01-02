@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import MenuIcon from "../assets/icons/Menu.svg";
 import MobileMenu from "./MobileMenu";
-import Logo from "../assets/icons/sunset.svg";
+import Logo from "../../public/Logo.png";
 
 const NavigationBar = ({ links }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
