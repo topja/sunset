@@ -1,12 +1,15 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import MenuIcon from "../assets/icons/Menu.svg";
 import MobileMenu from "./MobileMenu";
 import Logo from "../../public/Logo.png";
+import UseIcon from "../assets/icons/User.svg";
 
 const NavigationBar = ({ links }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -18,30 +21,44 @@ const NavigationBar = ({ links }) => {
           <img src={Logo} alt="Logo" className="h-12 md:h-16" />
         </Link>
 
-        {/* Links - Desktop */}
-        <nav className="hidden md:flex space-x-6" aria-label="Desktop Navigation">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              className="text-Gold hover:text-Tan font-medium"
+        {/* Links y Menú de Hamburguesa */}
+        <div className="flex items-center space-x-6">
+          <nav className="hidden md:flex space-x-6 items-center" aria-label="Desktop Navigation">
+            {links.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-Gold hover:text-Tan font-medium"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          {user && (
+            <button
+              onClick={logout}
+              className="p-2 rounded-full hover:bg-Gold transition duration-300"
+              aria-label="Cerrar sesión"
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Menú de Hamburguesa - Mobile */}
-        <button
-          className="block md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <img src={MenuIcon} alt="Menu" className="h-6 w-6" />
-        </button>
+              <img src={UseIcon} alt="Cerrar sesión" className="h-7 w-7" />
+            </button>
+          )}
+          <button
+            className="block md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <img src={MenuIcon} alt="Menu" className="h-6 w-6" />
+          </button>
+        </div>
       </div>
 
       {/* Menú desplegable en Mobile */}
-      <MobileMenu links={links} isOpen={isMenuOpen} closeMenu={closeMenu} aria-label="Mobile Navigation" />
+      <MobileMenu
+        links={links}
+        isOpen={isMenuOpen}
+        closeMenu={closeMenu}
+        aria-label="Mobile Navigation"
+      />
     </header>
   );
 };
