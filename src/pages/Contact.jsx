@@ -173,7 +173,7 @@ const Contact = () => {
                 {/* Botón */}
                 <button
                   type="submit"
-                  className="mt-6 w-full sm:w-auto px-6 py-2 rounded-md bg-Tan text-white font-semibold hover:bg-Gold transition-all"
+                  className="mt-6 w-full sm:w-auto px-6 py-2 rounded bg-Tan text-white font-semibold hover:bg-Gold transition-all"
                 >
                   {formStatus === "loading" ? "Enviando..." : "Enviar Mensaje"}
                 </button>

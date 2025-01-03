@@ -65,7 +65,7 @@ const Footer = () => {
 
         {/* Links Importantes */}
         <section className="mb-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <h5 className="text-lg font-bold text-white mb-2">
                 Sunset Experience
@@ -83,7 +83,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/contact" className="hover:text-white transition-colors">
-                    Contacto
+                    Contáctanos
                   </Link>
                 </li>
                 <li>
@@ -108,32 +108,6 @@ const Footer = () => {
                 <li>
                   <Link to="/privacy" className="hover:text-white transition-colors">
                     Política de Privacidad
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h5 className="text-lg font-bold text-white mb-2">Experiencias</h5>
-              <ul>
-                <li>
-                  <Link to="/experiences/relax" className="hover:text-white transition-colors">
-                    Relajación
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/experiences/wellness" className="hover:text-white transition-colors">
-                    Bienestar
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/experiences/sports" className="hover:text-white transition-colors">
-                    Deportes
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/experiences/food" className="hover:text-white transition-colors">
-                    Gastronomía
                   </Link>
                 </li>
               </ul>
