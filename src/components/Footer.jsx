@@ -96,17 +96,17 @@ const Footer = () => {
               <h5 className="text-lg font-bold text-white mb-2">Enlaces Útiles</h5>
               <ul>
                 <li>
-                  <Link to="/faq" className="hover:text-white transition-colors">
+                  <Link to="/" className="hover:text-white transition-colors">
                     Preguntas Frecuentes
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms" className="hover:text-white transition-colors">
+                  <Link to="/" className="hover:text-white transition-colors">
                     Términos y Condiciones
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy" className="hover:text-white transition-colors">
+                  <Link to="/" className="hover:text-white transition-colors">
                     Política de Privacidad
                   </Link>
                 </li>
