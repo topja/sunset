@@ -1,17 +1,17 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { vi } from "vitest";
 import NavigationBar from "./NavigationBar";
+import { useAuth } from "../context/AuthContext";
 
-// Mock del contexto de autenticación
 vi.mock("../context/AuthContext", () => ({
   useAuth: vi.fn(),
 }));
 
 const mockLinks = [
-  { label: "About", href: "#about" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 describe("NavigationBar Component", () => {
@@ -19,11 +19,14 @@ describe("NavigationBar Component", () => {
     render(<BrowserRouter>{component}</BrowserRouter>);
 
   beforeEach(() => {
-    const { useAuth } = require("../context/AuthContext");
     useAuth.mockReturnValue({
-      user: { displayName: "Test User" }, // Simula un usuario autenticado
-      logout: vi.fn(), // Simula la función de cerrar sesión
+      user: { displayName: "Test User" },
+      logout: vi.fn(),
     });
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it("renders the logo", () => {
@@ -42,15 +45,29 @@ describe("NavigationBar Component", () => {
     });
   });
 
-  it("shows the hamburger menu button", () => {
+  it("shows the hamburger menu button on mobile", () => {
     renderWithRouter(<NavigationBar links={mockLinks} />);
     const hamburgerButton = screen.getByAltText("Menu");
     expect(hamburgerButton).toBeInTheDocument();
   });
 
-  it("shows the logout icon when user is logged in", () => {
+  it("shows the logout icon when the user is logged in", () => {
     renderWithRouter(<NavigationBar links={mockLinks} />);
     const logoutIcon = screen.getByAltText("Cerrar sesión");
     expect(logoutIcon).toBeInTheDocument();
+  });
+
+  it("calls logout when the logout icon is clicked", () => {
+    const mockLogout = vi.fn();
+    useAuth.mockReturnValue({
+      user: { displayName: "Test User" },
+      logout: mockLogout,
+    });
+
+    renderWithRouter(<NavigationBar links={mockLinks} />);
+    const logoutIcon = screen.getByAltText("Cerrar sesión");
+    fireEvent.click(logoutIcon);
+
+    expect(mockLogout).toHaveBeenCalled();
   });
 });
