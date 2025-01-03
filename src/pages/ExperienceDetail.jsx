@@ -1,37 +1,17 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { cards } from "../data/bannerData";
 import useReservationModal from "../hooks/useReservationModal";
 import ReservationModal from "../components/ReservationModal";
-import AddReviewModal from "../components/AddReviewModal";
+import ReviewsSection from "../components/ReviewsSection";
 import Clock from "../assets/icons/Clock.svg";
 import Price from "../assets/icons/Price.svg";
 import Date from "../assets/icons/Date.svg";
-import { getReviewsByExperienceId } from "../services/firestoreService";
 
 function ExperienceDetail() {
   const { id } = useParams();
   const allExperiences = [...cards.relax, ...cards.food, ...cards.sports];
   const experience = allExperiences.find((item) => item.id === id);
-
-  const [reviews, setReviews] = useState([]);
-  const [loadingReviews, setLoadingReviews] = useState(true);
-  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      const fetchedReviews = await getReviewsByExperienceId(id);
-      setReviews(fetchedReviews);
-      setLoadingReviews(false);
-    };
-
-    fetchReviews();
-  }, [id]);
-
-  const handleReviewAdded = (newReview) => {
-    setReviews((prev) => [...prev, newReview]);
-  };
 
   if (!experience) {
     return <div className="p-4">No se encontró la experiencia.</div>;
@@ -87,49 +67,16 @@ function ExperienceDetail() {
         <p className="text-gray-600">{experience.completeDescription}</p>
       </div>
 
-      <div>
-        <h2 className="text-2xl text-Charcoal text-center font-agbalumo mt-2">Reseñas</h2>
-        {loadingReviews ? (
-          <p>Cargando reseñas...</p>
-        ) : reviews.length === 0 ? (
-          <p>No hay reseñas disponibles.</p>
-        ) : (
-          reviews.map((review) => (
-            <div key={review.id} className="border-b py-2">
-              <p className="font-semibold">{review.userName}</p>
-              <p className="text-gray-600">{review.comment}</p>
-              <p className="text-yellow-500">
-                {"★".repeat(review.rating) + "☆".repeat(5 - review.rating)}
-              </p>
-            </div>
-          ))
-        )}
-        <button
-          className="bg-transparent hover:text-black text-Charcoal font-bold px-4 py-2 rounded-lg transition duration-300"
-          onClick={() => setIsReviewModalOpen(true)}
-        >
-          Agregar Nueva Reseña
-        </button>
-      </div>
+      <ReviewsSection experienceId={id} />
 
       <div className="flex flex-col md:flex-row gap-4 mt-6">
-        
-
         <button
-          className="bg-Gold hover:bg-Tan text-white px-4 py-2 rounded-lg transition duration-300"
+          className="bg-Gold m-auto hover:bg-Tan text-white px-4 py-2 rounded transition duration-300"
           onClick={() => handleOpenModal(experience)}
         >
           Reservar
         </button>
       </div>
-
-      {isReviewModalOpen && (
-        <AddReviewModal
-          experienceId={id}
-          onReviewAdded={handleReviewAdded}
-          onClose={() => setIsReviewModalOpen(false)}
-        />
-      )}
 
       {isModalOpen && (
         <ReservationModal
