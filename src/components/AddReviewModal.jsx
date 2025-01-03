@@ -5,6 +5,7 @@ import { addReview } from "../services/reviewService";
 import { toast } from "react-toastify";
 import CloseIcon from "../assets/icons/Close.svg";
 import { useAuth } from "../context/AuthContext";
+import Google from "../assets/icons/Google.svg";
 
 const AddReviewModal = ({ experienceId, onReviewAdded, onClose }) => {
   const { user, loginWithGoogle } = useAuth();
@@ -46,15 +47,17 @@ const AddReviewModal = ({ experienceId, onReviewAdded, onClose }) => {
           <img src={CloseIcon} alt="Cerrar" className="w-6 h-6" />
         </button>
 
-        <h2 className="text-xl font-bold mb-4">Agregar Reseña</h2>
+        <h2 className="text-xl text-Charcoal text-center font-agbalumo mb-4">Agregar Reseña</h2>
         {!user ? (
           <div className="flex flex-col items-center">
-            <p className="text-red-500 mb-4">Debes iniciar sesión para agregar una reseña.</p>
+            <p className="text-red-500 mb-4">Inicia sesión para agregar una reseña.</p>
             <button
               onClick={loginWithGoogle}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+              className="flex gap-3 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg border-2 "
             >
-              Iniciar sesión con Google
+              Iniciar sesión con Google           
+              <img src={Google} alt="Google" className="h-6 w-6" />
+
             </button>
           </div>
         ) : (
@@ -80,13 +83,6 @@ const AddReviewModal = ({ experienceId, onReviewAdded, onClose }) => {
             />
 
             <div className="flex justify-end gap-4">
-              <button
-                type="button"
-                onClick={onClose}
-                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
-              >
-                Cancelar
-              </button>
               <button
                 type="submit"
                 className="bg-Tan hover:bg-Gold text-white px-4 py-2 rounded"
