@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import { cards } from "../data/bannerData";
 import useReservationModal from "../hooks/useReservationModal";
 import ReservationModal from "../components/ReservationModal";
+import ReviewsSection from "../components/ReviewsSection";
 import Clock from "../assets/icons/Clock.svg";
 import Price from "../assets/icons/Price.svg";
 import Date from "../assets/icons/Date.svg";
@@ -26,7 +27,7 @@ function ExperienceDetail() {
   } = useReservationModal();
 
   return (
-    <div className="p- mt-24 md:mt-32 mx-4 md:mx-8 lg:mx-24">
+    <div className="mt-24 md:mt-32 mx-4 md:mx-8 lg:mx-24">
       <ToastContainer position="top-right" autoClose={3000} />
 
       <img
@@ -41,19 +42,15 @@ function ExperienceDetail() {
         <img src={Clock} alt="Clock" className="h-6" />
         <div>
           <p className="font-bold">Duración</p>
-          <p className="text-gray-700">
-            {experience.duration}
-          </p>
-        </div>    
+          <p className="text-gray-700">{experience.duration}</p>
+        </div>
       </div>
 
       <div className="flex gap-2 mt-2">
         <img src={Price} alt="Price" className="h-6" />
         <div>
           <p className="font-bold">Precio</p>
-          <p className="text-gray-700">
-            {experience.price}
-          </p>
+          <p className="text-gray-700">{experience.price}</p>
         </div>
       </div>
 
@@ -67,21 +64,19 @@ function ExperienceDetail() {
 
       <div>
         <h2 className="text-2xl text-Charcoal font-agbalumo mt-2">Más detalles</h2>
-        <p className="text-gray-600">
-          {experience.completeDescription}
-        </p>
+        <p className="text-gray-600">{experience.completeDescription}</p>
       </div>
 
-      <div>
-        <h2 className="text-2xl text-Charcoal text-center font-agbalumo mt-2">Reseñas</h2>
+      <ReviewsSection experienceId={id} />
+
+      <div className="flex flex-col md:flex-row gap-4 mt-6">
+        <button
+          className="bg-Gold m-auto hover:bg-Tan text-white px-4 py-2 rounded transition duration-300"
+          onClick={() => handleOpenModal(experience)}
+        >
+          Reservar
+        </button>
       </div>
-      
-      <button
-        className="mt-4 bg-Tan hover:bg-Gold text-white px-4 py-2 rounded-lg transition duration-300"
-        onClick={() => handleOpenModal(experience)}
-      >
-        Reservar
-      </button>
 
       {isModalOpen && (
         <ReservationModal
