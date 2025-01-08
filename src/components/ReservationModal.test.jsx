@@ -15,13 +15,14 @@ describe("ReservationModal Component", () => {
   const mockHandleCloseModal = vi.fn();
   const mockHandleSubmit = vi.fn((e) => e.preventDefault());
 
-  it("renders the form fields correctly", () => {
+  it("renders the form fields correctly when isExperience is true", () => {
     render(
       <ReservationModal
         formData={mockFormData}
         updateFormField={mockUpdateFormField}
         handleCloseModal={mockHandleCloseModal}
         handleSubmit={mockHandleSubmit}
+        isExperience={true} 
       />
     );
 
@@ -32,6 +33,24 @@ describe("ReservationModal Component", () => {
     expect(screen.getByLabelText("Fecha de Llegada")).toBeInTheDocument();
   });
 
+  it("renders the form fields correctly when isExperience is false", () => {
+    render(
+      <ReservationModal
+        formData={mockFormData}
+        updateFormField={mockUpdateFormField}
+        handleCloseModal={mockHandleCloseModal}
+        handleSubmit={mockHandleSubmit}
+        isExperience={false} 
+      />
+    );
+
+    expect(screen.getByLabelText("Nombre")).toHaveValue(mockFormData.name);
+    expect(screen.getByLabelText("Correo Electrónico")).toHaveValue(mockFormData.email);
+    expect(screen.getByLabelText("Teléfono")).toHaveValue(mockFormData.phone);
+    expect(screen.queryByText("Número de Personas")).not.toBeInTheDocument();
+    expect(screen.getByLabelText("Fecha de Llegada")).toBeInTheDocument();
+  });
+
   it("calls updateFormField when inputs change", () => {
     render(
       <ReservationModal
@@ -39,6 +58,7 @@ describe("ReservationModal Component", () => {
         updateFormField={mockUpdateFormField}
         handleCloseModal={mockHandleCloseModal}
         handleSubmit={mockHandleSubmit}
+        isExperience={true}
       />
     );
 
@@ -54,6 +74,7 @@ describe("ReservationModal Component", () => {
         updateFormField={mockUpdateFormField}
         handleCloseModal={mockHandleCloseModal}
         handleSubmit={mockHandleSubmit}
+        isExperience={true}
       />
     );
 
@@ -69,6 +90,7 @@ describe("ReservationModal Component", () => {
         updateFormField={mockUpdateFormField}
         handleCloseModal={mockHandleCloseModal}
         handleSubmit={mockHandleSubmit}
+        isExperience={true}
       />
     );
 
