@@ -13,6 +13,7 @@ const ReservationModal = ({
   updateFormField,
   handleCloseModal,
   handleSubmit,
+  isExperience,
 }) => {
   const incrementGuests = () => {
     updateFormField("guests", formData.guests + 1);
@@ -78,22 +79,24 @@ const ReservationModal = ({
               className="w-full p-2 border rounded"
             />
           </div>
-          <div>
-            <label className="block text-gray-700">Número de Personas</label>
-            <div className="flex items-center gap-4">
-              <IconButton
-                onClick={decrementGuests}
-                color="primary"
-                disabled={formData.guests <= 1}
-              >
-                <RemoveIcon />
-              </IconButton>
-              <span className="text-lg font-semibold">{formData.guests}</span>
-              <IconButton onClick={incrementGuests} color="primary">
-                <AddIcon />
-              </IconButton>
+          {isExperience && (
+            <div>
+              <label className="block text-gray-700">Número de Personas</label>
+              <div className="flex items-center gap-4">
+                <IconButton
+                  onClick={decrementGuests}
+                  color="primary"
+                  disabled={formData.guests <= 1}
+                >
+                  <RemoveIcon />
+                </IconButton>
+                <span className="text-lg font-semibold">{formData.guests}</span>
+                <IconButton onClick={incrementGuests} color="primary">
+                  <AddIcon />
+                </IconButton>
+              </div>
             </div>
-          </div>
+          )}
           <div>
             <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={esLocale}>
               <DatePicker
@@ -137,6 +140,7 @@ ReservationModal.propTypes = {
   updateFormField: PropTypes.func.isRequired,
   handleCloseModal: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  isExperience: PropTypes.bool.isRequired,
 };
 
 export default ReservationModal;
