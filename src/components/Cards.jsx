@@ -30,7 +30,7 @@ const Cards = () => {
           <Category
             title="Kits de Bienvenida"
             items={cards.kits}
-            onCardClick={handleOpenModal} 
+            onCardClick={(item) => handleOpenModal(item, false)}  
             buttonLabel="Lo Quiero"
             isExperience={false} 
           />
@@ -67,6 +67,7 @@ const Cards = () => {
           updateFormField={updateFormField}
           handleCloseModal={handleCloseModal}
           handleSubmit={handleReservation}
+          isExperience={formData.isExperience}
         />
       )}
     </div>

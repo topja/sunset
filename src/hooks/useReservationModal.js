@@ -14,8 +14,13 @@ export default function useReservationModal() {
     arrivalDate: new Date(),
   });
 
-  const handleOpenModal = (item) => {
+  const handleOpenModal = (item, isExperience = false) => {
     setSelectedItem(item);
+    setFormData((prev) => ({
+      ...prev,
+      guests: isExperience ? 1 : undefined,
+      isExperience, 
+    }));
     setIsModalOpen(true);
   };
 

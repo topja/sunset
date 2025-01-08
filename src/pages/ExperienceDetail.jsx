@@ -84,6 +84,7 @@ function ExperienceDetail() {
           updateFormField={updateFormField}
           handleCloseModal={handleCloseModal}
           handleSubmit={handleReservation}
+          isExperience={true}
         />
       )}
     </div>
