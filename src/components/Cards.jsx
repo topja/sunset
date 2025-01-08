@@ -3,7 +3,7 @@ import { tabs, cards } from "../data/bannerData";
 import Tabs from "./Tabs";
 import Category from "./Category";
 import ReservationModal from "./ReservationModal";
-import { ToastContainer } from "react-toastify"; 
+import { ToastContainer } from "react-toastify";
 import useReservationModal from "../hooks/useReservationModal";
 
 const Cards = () => {
@@ -18,47 +18,31 @@ const Cards = () => {
     handleReservation,
   } = useReservationModal();
 
+  const categories = [
+    { title: "Kits de Bienvenida", items: cards.kits, isExperience: false },
+    { title: "Relajación", items: cards.relax, isExperience: true },
+    { title: "Gastronómicas", items: cards.food, isExperience: true },
+    { title: "Deportivas", items: cards.sports, isExperience: true },
+  ];
+
   return (
     <div>
-     
       <ToastContainer position="top-right" autoClose={3000} />
-
       <Tabs tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div className="bg-white px-6 md:px-8 lg:px-24 mb-12 mt-10">
-        {activeTab === "kits" ? (
-          <Category
-            title="Kits de Bienvenida"
-            items={cards.kits}
-            onCardClick={(item) => handleOpenModal(item, false)}  
-            buttonLabel="Lo Quiero"
-            isExperience={false} 
-          />
-        ) : (
-          <>
+        {categories
+          .filter((category) => activeTab === "kits" ? !category.isExperience : category.isExperience)
+          .map(({ title, items, isExperience }) => (
             <Category
-              title="Relajación"
-              items={cards.relax}
-              onCardClick={handleOpenModal}
-              buttonLabel="Reservar"
-              isExperience={true}
+              key={title}
+              title={title}
+              items={items}
+              onCardClick={(item) => handleOpenModal(item, isExperience)}
+              buttonLabel={isExperience ? "Reservar" : "Lo Quiero"}
+              isExperience={isExperience}
             />
-            <Category
-              title="Gastronómicas"
-              items={cards.food}
-              onCardClick={handleOpenModal}
-              buttonLabel="Reservar"
-              isExperience={true}
-            />
-            <Category
-              title="Deportivas"
-              items={cards.sports}
-              onCardClick={handleOpenModal}
-              buttonLabel="Reservar"
-              isExperience={true}
-            />
-          </>
-        )}
+          ))}
       </div>
 
       {isModalOpen && (
