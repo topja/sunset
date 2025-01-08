@@ -18,8 +18,8 @@ export default function useReservationModal() {
     setSelectedItem(item);
     setFormData((prev) => ({
       ...prev,
-      guests: isExperience ? 1 : undefined,
-      isExperience, 
+      guests: isExperience ? prev.guests || 1 : undefined, 
+      isExperience,
     }));
     setIsModalOpen(true);
   };
@@ -38,7 +38,10 @@ export default function useReservationModal() {
   };
 
   const updateFormField = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
   const handleReservation = async (e) => {

@@ -16,14 +16,14 @@ const ReservationModal = ({
   isExperience,
 }) => {
   const incrementGuests = () => {
-    updateFormField("guests", formData.guests + 1);
+    updateFormField("guests", (formData.guests || 1) + 1); 
   };
-
+  
   const decrementGuests = () => {
     if (formData.guests > 1) {
       updateFormField("guests", formData.guests - 1);
     }
-  };
+  };  
 
   return (
     <div className="fixed inset-0 flex font-inter items-center justify-center bg-black bg-opacity-50 z-50 p-4">
@@ -90,7 +90,7 @@ const ReservationModal = ({
                 >
                   <RemoveIcon />
                 </IconButton>
-                <span className="text-lg font-semibold">{formData.guests}</span>
+                <span className="text-lg font-semibold">{formData.guests || 1}</span> 
                 <IconButton onClick={incrementGuests} color="primary">
                   <AddIcon />
                 </IconButton>
