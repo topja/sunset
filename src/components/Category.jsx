@@ -7,7 +7,7 @@ const Category = ({ title, items, onCardClick, buttonLabel, isExperience }) => {
       <h2 className="text-2xl text-Charcoal font-agbalumo mb-4 capitalize">{title}</h2>
       <CardList
         items={items}
-        onCardClick={onCardClick}
+        onCardClick={(item, isExperience) => onCardClick(item, isExperience)}
         buttonLabel={buttonLabel}
         isExperience={isExperience}
       />

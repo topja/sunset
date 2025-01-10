@@ -72,7 +72,7 @@ function ExperienceDetail() {
       <div className="flex flex-col md:flex-row gap-4 mt-6">
         <button
           className="bg-Gold m-auto hover:bg-Tan text-white px-4 py-2 rounded transition duration-300"
-          onClick={() => handleOpenModal(experience)}
+          onClick={() => handleOpenModal(experience, true)}
         >
           Reservar
         </button>
