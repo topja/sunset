@@ -2,15 +2,6 @@ import emailjs from "@emailjs/browser";
 
 export const sendReservation = async (templateParams) => {
   try {
-    // Enviar correo al cliente
-    await emailjs.send(
-      "service_5ba4aea",
-      "template_gyhrm9d", 
-      templateParams,
-      "VEdUEvObsOGRosT3B"
-    );
-
-    console.log("Correo enviado al cliente.");
 
     // Enviar correo al usuario
     await emailjs.send(
@@ -32,7 +23,7 @@ export const sendReservation = async (templateParams) => {
       - *Número de Personas*: ${templateParams.guests}
       - *Fecha de Llegada*: ${templateParams.arrivalDate}
 
-      *Datos del usuario*:
+      *Tus datos*:
       - *Nombre*: ${templateParams.user_name}
       - *Correo*: ${templateParams.user_email}
       - *Teléfono*: ${templateParams.user_phone}
@@ -44,7 +35,7 @@ export const sendReservation = async (templateParams) => {
     const encodedMessage = encodeURIComponent(whatsappMessage);
 
     // Crear la URL para WhatsApp
-    const phoneNumber = "56984506314"; // Número del destinatario
+    const phoneNumber = "56991748857"; 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     // Abrir WhatsApp en una nueva pestaña
