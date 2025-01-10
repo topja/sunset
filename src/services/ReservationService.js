@@ -11,6 +11,10 @@ export const sendReservation = async (templateParams) => {
       "VEdUEvObsOGRosT3B"
     );
 
+    const phoneWithPlus = templateParams.user_phone.startsWith("+")
+    ? templateParams.user_phone
+    : `+${templateParams.user_phone}`;
+
     // Generar el mensaje para WhatsApp
     const whatsappMessage = `
       ¡Hola! Somos *Sunset Experience* y estamos muy contentos de que nos elijas para vivir momentos inolvidables. 
@@ -26,7 +30,7 @@ export const sendReservation = async (templateParams) => {
       *Tus datos*:
       - *Nombre*: ${templateParams.user_name}
       - *Correo*: ${templateParams.user_email}
-      - *Teléfono*: ${templateParams.user_phone}
+      - *Teléfono*: ${phoneWithPlus}
 
       ¡Gracias por confiar en nosotros! 
     `.trim();
@@ -35,7 +39,7 @@ export const sendReservation = async (templateParams) => {
     const encodedMessage = encodeURIComponent(whatsappMessage);
 
     // Crear la URL para WhatsApp
-    const phoneNumber = "56991748857"; 
+    const phoneNumber = "56984506314"; 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     // Abrir WhatsApp en una nueva pestaña
