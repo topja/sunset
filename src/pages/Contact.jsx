@@ -81,7 +81,7 @@ const Contact = () => {
                 <div className="flex flex-col items-center gap-2">
                   <img src={MailIcon} alt="Mail" className="h-10 w-10 p-2 rounded-full bg-Gold border-Charcoal border" />
                   
-                  <p>info@example.com</p>
+                  <p>inversioneselatardecer@gmail.com</p>
                 </div>
                 <div className="flex flex-col items-center gap-2">
                   <img src={PhoneIcon} alt="Phone" className="h-10 w-10 p-2 rounded-full bg-Gold border-Charcoal border" />
