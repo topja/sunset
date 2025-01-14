@@ -17,7 +17,7 @@ export const sendReservation = async (templateParams) => {
 
     // Generar el mensaje para WhatsApp
     const whatsappMessage = `
-      ¡Hola! Somos *Sunset Experience* y estamos muy contentos de que nos elijas para vivir momentos inolvidables. 
+      ¡Hola ${templateParams.user_name}! Somos *Sunset Experience* y estamos muy contentos de que nos elijas para vivir momentos inolvidables. 
 
       Aquí están los detalles de tu reserva:
       - *Título*: ${templateParams.title}
