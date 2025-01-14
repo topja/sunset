@@ -18,7 +18,7 @@ export default function useReservationModal() {
     setSelectedItem({ ...item, isExperience }); 
     setFormData((prev) => ({
       ...prev,
-      guests: isExperience ? prev.guests || 1 : "N/A", 
+      guests: isExperience ? prev.guests || 1 : 0, 
     }));
     setIsModalOpen(true);
   };
@@ -54,10 +54,10 @@ export default function useReservationModal() {
       user_name: formData.name,
       user_email: formData.email,
       user_phone: formData.phone,
-      guests: selectedItem?.isExperience ? formData.guests : "N/A",
+      guests: selectedItem?.isExperience ? formData.guests : "N/A", 
       arrivalDate: formData.arrivalDate.toISOString().split("T")[0],
     };
-
+    
     const result = await sendReservation(templateParams);
 
     if (result.success) {

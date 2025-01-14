@@ -93,7 +93,7 @@ const ReservationModal = ({
                 >
                   <RemoveIcon />
                 </IconButton>
-                <span className="text-lg font-semibold">{formData.guests || 1}</span>
+                <span className="text-lg font-semibold">{formData.guests > 0 ? formData.guests : "N/A"}</span>
                 <IconButton onClick={incrementGuests} color="primary">
                   <AddIcon />
                 </IconButton>
@@ -143,7 +143,7 @@ ReservationModal.propTypes = {
   updateFormField: PropTypes.func.isRequired,
   handleCloseModal: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  isExperience: PropTypes.bool.isRequired,
+  isExperience: PropTypes.bool,
 };
 
 export default ReservationModal;
