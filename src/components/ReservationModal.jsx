@@ -72,11 +72,14 @@ const ReservationModal = ({
               Teléfono
             </label>
             <PhoneInput
-              country="cl" // País predeterminado
+              country="cl" 
               value={formData.phone}
               onChange={(phone) => updateFormField("phone", phone)}
               inputClass="w-full p-2 border rounded"
               inputStyle={{ width: "100%" }}
+              inputProps={{
+                "aria-label": "Teléfono", 
+              }}
             />
           </div>
           {isExperience && (
