@@ -1,12 +1,13 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Contact from "./Contact";
 import { vi } from "vitest";
+import * as contactService from "../services/contactService";
 
-global.fetch = vi.fn();
+vi.mock("../services/contactService");
 
 describe("Contact Component", () => {
   beforeEach(() => {
-    fetch.mockReset();
+    vi.clearAllMocks();
   });
 
   it("renders all form fields and Airbnb link", () => {
@@ -21,7 +22,10 @@ describe("Contact Component", () => {
     expect(screen.getByRole("button", { name: /Enviar mensaje/i })).toBeInTheDocument();
 
     const airbnbLink = screen.getByRole("link", { name: /Airbnb/i });
-    expect(airbnbLink).toHaveAttribute("href", "https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2");
+    expect(airbnbLink).toHaveAttribute(
+      "href",
+      "https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2"
+    );
 
     const googleMap = screen.getByTitle(/Ubicación/i);
     expect(googleMap).toBeInTheDocument();
@@ -47,7 +51,7 @@ describe("Contact Component", () => {
   });
 
   it("shows success message on successful submission", async () => {
-    fetch.mockResolvedValueOnce({ ok: true });
+    contactService.sendContactEmail.mockResolvedValueOnce({ success: true });
 
     render(<Contact />);
 
@@ -63,17 +67,14 @@ describe("Contact Component", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(fetch).toHaveBeenCalledTimes(1);
-      expect(fetch).toHaveBeenCalledWith(
-        "https://formspree.io/f/xyyaoqnq",
-        expect.objectContaining({
-          method: "POST",
-          body: expect.any(FormData),
-          headers: expect.objectContaining({
-            Accept: "application/json",
-          }),
-        })
-      );
+      expect(contactService.sendContactEmail).toHaveBeenCalledTimes(1);
+      expect(contactService.sendContactEmail).toHaveBeenCalledWith({
+        firstName: "Juan",
+        lastName: "Pérez",
+        email: "juan@example.com",
+        number: "",
+        message: "Estoy interesado en el kit",
+      });
     });
 
     expect(
@@ -82,7 +83,7 @@ describe("Contact Component", () => {
   });
 
   it("shows error message if submission fails", async () => {
-    fetch.mockResolvedValueOnce({ ok: false });
+    contactService.sendContactEmail.mockRejectedValueOnce(new Error("Error al enviar el correo"));
 
     render(<Contact />);
 
@@ -98,7 +99,7 @@ describe("Contact Component", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(fetch).toHaveBeenCalledTimes(1);
+      expect(contactService.sendContactEmail).toHaveBeenCalledTimes(1);
     });
 
     expect(
@@ -113,7 +114,7 @@ describe("Contact Component", () => {
 
     fireEvent.click(submitButton);
 
-    expect(fetch).not.toHaveBeenCalled();
+    expect(contactService.sendContactEmail).not.toHaveBeenCalled();
     expect(screen.queryByText(/¡Gracias! Hemos recibido tu mensaje./i)).not.toBeInTheDocument();
   });
 });
