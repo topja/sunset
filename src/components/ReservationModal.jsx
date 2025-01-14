@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css"; 
 import ReserveIcon from "../assets/icons/Reserve.svg";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -16,14 +18,14 @@ const ReservationModal = ({
   isExperience,
 }) => {
   const incrementGuests = () => {
-    updateFormField("guests", (formData.guests || 1) + 1); 
+    updateFormField("guests", (formData.guests || 1) + 1);
   };
-  
+
   const decrementGuests = () => {
     if (formData.guests > 1) {
       updateFormField("guests", formData.guests - 1);
     }
-  };  
+  };
 
   return (
     <div className="fixed inset-0 flex font-inter items-center justify-center bg-black bg-opacity-50 z-50 p-4">
@@ -69,14 +71,15 @@ const ReservationModal = ({
             <label htmlFor="phone" className="block text-gray-700">
               Teléfono
             </label>
-            <input
-              id="phone"
-              type="text"
-              name="phone"
+            <PhoneInput
+              country="cl" 
               value={formData.phone}
-              onChange={(e) => updateFormField("phone", e.target.value)}
-              required
-              className="w-full p-2 border rounded"
+              onChange={(phone) => updateFormField("phone", phone)}
+              inputClass="w-full p-2 border rounded"
+              inputStyle={{ width: "100%" }}
+              inputProps={{
+                "aria-label": "Teléfono", 
+              }}
             />
           </div>
           {isExperience && (
@@ -90,7 +93,7 @@ const ReservationModal = ({
                 >
                   <RemoveIcon />
                 </IconButton>
-                <span className="text-lg font-semibold">{formData.guests || 1}</span> 
+                <span className="text-lg font-semibold">{formData.guests > 0 ? formData.guests : "N/A"}</span>
                 <IconButton onClick={incrementGuests} color="primary">
                   <AddIcon />
                 </IconButton>
@@ -140,7 +143,7 @@ ReservationModal.propTypes = {
   updateFormField: PropTypes.func.isRequired,
   handleCloseModal: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  isExperience: PropTypes.bool.isRequired,
+  isExperience: PropTypes.bool,
 };
 
 export default ReservationModal;

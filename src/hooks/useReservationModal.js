@@ -15,11 +15,10 @@ export default function useReservationModal() {
   });
 
   const handleOpenModal = (item, isExperience = false) => {
-    setSelectedItem(item);
+    setSelectedItem({ ...item, isExperience }); 
     setFormData((prev) => ({
       ...prev,
-      guests: isExperience ? prev.guests || 1 : undefined, 
-      isExperience,
+      guests: isExperience ? prev.guests || 1 : 0, 
     }));
     setIsModalOpen(true);
   };
@@ -50,16 +49,15 @@ export default function useReservationModal() {
     const templateParams = {
       title: selectedItem?.title,
       description: selectedItem?.description,
-      duration: selectedItem?.duration || "No especificada",
-      price: selectedItem?.price || "No especificado",
+      duration: selectedItem?.duration || "N/A",
+      price: selectedItem?.price || "N/A",
       user_name: formData.name,
       user_email: formData.email,
       user_phone: formData.phone,
-      user_message: formData.message || "Sin mensaje adicional",
-      guests: formData.guests,
+      guests: selectedItem?.isExperience ? formData.guests : "N/A", 
       arrivalDate: formData.arrivalDate.toISOString().split("T")[0],
     };
-
+    
     const result = await sendReservation(templateParams);
 
     if (result.success) {

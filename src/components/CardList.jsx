@@ -90,7 +90,7 @@ const CardList = ({ items, onCardClick, buttonLabel, isExperience }) => {
               <button
                 className="bg-Tan hover:bg-Gold mt-2 text-white font-medium px-4 py-2 rounded-blg
                            transition font-inter duration-300 w-full"
-                onClick={() => onCardClick(item)}
+                           onClick={() => onCardClick(item, isExperience)}
               >
                 {buttonLabel}
               </button>

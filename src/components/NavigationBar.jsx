@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import MenuIcon from "../assets/icons/Menu.svg";
 import MobileMenu from "./MobileMenu";
-import Logo from "../../public/Logo.png";
+import Logo from "../assets/Logo1.png";
 import UseIcon from "../assets/icons/User.svg";
 
 const NavigationBar = ({ links }) => {

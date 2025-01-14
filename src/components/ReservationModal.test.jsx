@@ -6,9 +6,9 @@ describe("ReservationModal Component", () => {
   const mockFormData = {
     name: "John Doe",
     email: "john@example.com",
-    phone: "123456789",
+    phone: "+1 (234) 567-89",
     guests: 2,
-    arrivalDate: new Date(),
+    arrivalDate: new Date("2025-01-01"), 
   };
 
   const mockUpdateFormField = vi.fn();
@@ -22,16 +22,21 @@ describe("ReservationModal Component", () => {
         updateFormField={mockUpdateFormField}
         handleCloseModal={mockHandleCloseModal}
         handleSubmit={mockHandleSubmit}
-        isExperience={true} 
+        isExperience={true}
       />
     );
-
+  
     expect(screen.getByLabelText("Nombre")).toHaveValue(mockFormData.name);
     expect(screen.getByLabelText("Correo Electrónico")).toHaveValue(mockFormData.email);
     expect(screen.getByLabelText("Teléfono")).toHaveValue(mockFormData.phone);
     expect(screen.getByText("Número de Personas")).toBeInTheDocument();
-    expect(screen.getByLabelText("Fecha de Llegada")).toBeInTheDocument();
-  });
+  
+    const dateInput = screen.getByLabelText("Fecha de Llegada");
+    expect(dateInput).toBeInTheDocument();
+
+    const phoneInput = screen.getByLabelText("Teléfono");
+    expect(phoneInput).toHaveValue("+1 (234) 567-89");
+  });  
 
   it("renders the form fields correctly when isExperience is false", () => {
     render(
@@ -40,16 +45,19 @@ describe("ReservationModal Component", () => {
         updateFormField={mockUpdateFormField}
         handleCloseModal={mockHandleCloseModal}
         handleSubmit={mockHandleSubmit}
-        isExperience={false} 
+        isExperience={false}
       />
     );
-
+  
     expect(screen.getByLabelText("Nombre")).toHaveValue(mockFormData.name);
     expect(screen.getByLabelText("Correo Electrónico")).toHaveValue(mockFormData.email);
     expect(screen.getByLabelText("Teléfono")).toHaveValue(mockFormData.phone);
-    expect(screen.queryByText("Número de Personas")).not.toBeInTheDocument();
+    expect(screen.queryByText("Número de Personas")).not.toBeInTheDocument(); 
     expect(screen.getByLabelText("Fecha de Llegada")).toBeInTheDocument();
-  });
+
+    const phoneInput = screen.getByLabelText("Teléfono");
+    expect(phoneInput).toHaveValue("+1 (234) 567-89");
+  });  
 
   it("calls updateFormField when inputs change", () => {
     render(

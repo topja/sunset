@@ -4,6 +4,7 @@ import PhoneIcon from "../assets/icons/Phone.svg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PiscinaImage from "../assets/Piscina.avif";
+import { sendContactEmail } from "../services/contactService";
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState("idle");
@@ -24,27 +25,18 @@ const Contact = () => {
     e.preventDefault();
     try {
       setFormStatus("loading");
-      const response = await fetch("https://formspree.io/f/xyyaoqnq", {
-        method: "POST",
-        body: new FormData(e.target),
-        headers: { Accept: "application/json" },
+      await sendContactEmail(formData);
+  
+      setFormStatus("success");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        number: "",
+        message: "",
       });
-
-      if (response.ok) {
-        setFormStatus("success");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          number: "",
-          message: "",
-        });
-        toast.success("¡Gracias! Hemos recibido tu mensaje.");
-      } else {
-        setFormStatus("error");
-        toast.error("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
-      }
-    } catch {
+      toast.success("¡Gracias! Hemos recibido tu mensaje.");
+    } catch (error) {
       setFormStatus("error");
       toast.error("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo.");
     }
@@ -77,11 +69,11 @@ const Contact = () => {
               <p className="mt-2 text-lg text-gray-600">
                 ¿Tienes consultas sobre nuestras experiencias o kits? Envíanos tu mensaje.
               </p>
-              <div className="flex justify-center gap-10 mt-10">
+              <div className="flex-col justify-center gap-10 mt-10">
                 <div className="flex flex-col items-center gap-2">
                   <img src={MailIcon} alt="Mail" className="h-10 w-10 p-2 rounded-full bg-Gold border-Charcoal border" />
                   
-                  <p>info@example.com</p>
+                  <p>inversioneselatardecer@gmail.com</p>
                 </div>
                 <div className="flex flex-col items-center gap-2">
                   <img src={PhoneIcon} alt="Phone" className="h-10 w-10 p-2 rounded-full bg-Gold border-Charcoal border" />
