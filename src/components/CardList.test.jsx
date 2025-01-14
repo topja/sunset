@@ -51,13 +51,14 @@ describe("CardList Component (Kits)", () => {
         isExperience={false}
       />
     );
-
+  
     const button = screen.getAllByText("Lo quiero")[0];
     fireEvent.click(button);
-
-    expect(mockOnCardClick).toHaveBeenCalledWith(mockItemsKits[0]);
+  
+    expect(mockOnCardClick).toHaveBeenCalledWith(mockItemsKits[0], false);
   });
 });
+  
 
 describe("CardList Component (Experiences)", () => {
   const mockItemsExperiences = [
