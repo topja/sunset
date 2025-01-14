@@ -39,7 +39,7 @@ export const sendReservation = async (templateParams) => {
     const encodedMessage = encodeURIComponent(whatsappMessage);
 
     // Crear la URL para WhatsApp
-    const phoneNumber = "56984506314"; 
+    const phoneNumber = "56991748857"; 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     // Abrir WhatsApp en una nueva pestaña
