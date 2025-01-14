@@ -5,10 +5,10 @@ export const sendReservation = async (templateParams) => {
 
     // Enviar correo al usuario
     await emailjs.send(
-      "service_5ba4aea",
-      "template_vau954s", 
+      "service_46sy2if",
+      "template_mz5ugy7", 
       templateParams,
-      "VEdUEvObsOGRosT3B"
+      "RZlA9W7LydyMmrvvO"
     );
 
     const phoneWithPlus = templateParams.user_phone.startsWith("+")
