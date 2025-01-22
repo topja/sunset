@@ -1,6 +1,9 @@
-import PropTypes from "prop-types";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
@@ -10,10 +13,18 @@ const responsive = {
 };
 
 const MapSection = ({ airbnbUrl, mapSrc, images }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <div className="w-full">
       <h2 className="mb-2 font-inter mt-20 text-lg text-center">
-        Reserva con nosotros en{" "}
+        Reserva con nosotros en{' '}
         <a
           href={airbnbUrl}
           target="_blank"
@@ -33,7 +44,8 @@ const MapSection = ({ airbnbUrl, mapSrc, images }) => {
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
-                className="object-cover w-full h-48"
+                className="object-cover w-full h-48 cursor-pointer"
+                onClick={() => openLightbox(index)}
               />
             </div>
           ))}
@@ -46,7 +58,16 @@ const MapSection = ({ airbnbUrl, mapSrc, images }) => {
         loading="lazy"
         allowFullScreen
       ></iframe>
-      
+
+      {lightboxOpen && (
+        <Lightbox
+          open={lightboxOpen}
+          close={() => setLightboxOpen(false)}
+          slides={images.map((src) => ({ src }))}
+          index={currentImageIndex}
+          onIndexChange={setCurrentImageIndex}
+        />
+      )}
     </div>
   );
 };
