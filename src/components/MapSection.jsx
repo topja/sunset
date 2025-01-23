@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import Airbnb from '../assets/icons/Airbnb.svg';
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
@@ -23,15 +24,14 @@ const MapSection = ({ airbnbUrl, mapSrc, images }) => {
 
   return (
     <div className="w-full">
-      <h2 className="mb-2 font-inter mt-20 text-lg text-center">
+      <h2 className="mb-2 text-gray-700 font-inter mt-20 text-lg text-center">
         Reserva con nosotros en{' '}
         <a
           href={airbnbUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white py-2 px-4 rounded-2xl bg-Air font-bold hover:bg-AirHover"
         >
-          Airbnb
+          <img src={Airbnb} alt="Airbnb"  className="h-6 inline hover:scale-105 transition-transform duration-300" />
         </a>
       </h2>
       <div className="mt-6">
