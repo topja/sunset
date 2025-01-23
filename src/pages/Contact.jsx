@@ -75,7 +75,7 @@ const Contact = () => {
             <h2 className="text-3xl font-semibold tracking-tight text-Charcoal md:text-4xl font-agbalumo">
               Contáctanos
             </h2>
-            <p className="mt-2 text-lg text-gray-600">
+            <p className="mt-2 text-lg text-gray-700">
               ¿Tienes consultas sobre nuestras experiencias o kits? Envíanos tu
               mensaje.
             </p>
@@ -86,7 +86,7 @@ const Contact = () => {
                   alt="Mail"
                   className="h-10 w-10 p-2 rounded-full bg-Gold border-Charcoal border"
                 />
-                <p>inversioneselatardecer@gmail.com</p>
+                <p className="text-gray-700">inversioneselatardecer@gmail.com</p>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <img
@@ -94,7 +94,7 @@ const Contact = () => {
                   alt="Phone"
                   className="h-10 w-10 p-2 rounded-full bg-Gold border-Charcoal border"
                 />
-                <p>+56 9 9174 8857</p>
+                <p className="text-gray-700">+56 9 9174 8857</p>
               </div>
             </div>
           </div>
