@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { cards } from "../data/bannerData";
+import { cards } from "../data/Data";
 import useReservationModal from "../hooks/useReservationModal";
 import ReservationModal from "../components/ReservationModal";
 import ReviewsSection from "../components/ReviewsSection";
+import ImageCarousel from '../components/ImageCarousel';
 import Clock from "../assets/icons/Clock.svg";
 import Price from "../assets/icons/Price.svg";
 import Date from "../assets/icons/Date.svg";
@@ -30,12 +31,9 @@ function ExperienceDetail() {
     <div className="mt-24 md:mt-32 mx-4 md:mx-8 lg:mx-24">
       <ToastContainer position="top-right" autoClose={3000} />
 
-      <img
-        src={experience.image}
-        alt={experience.title}
-        className="my-4 w-full max-w-md object-cover rounded-lg"
-      />
-      <h2 className="text-2xl text-Charcoal font-agbalumo mb-2">{experience.title}</h2>
+      <ImageCarousel images={experience.images} />
+
+      <h2 className="text-2xl text-Charcoal font-agbalumo mb-2 mt-5">{experience.title}</h2>
       <p className="text-gray-600 mb-2">{experience.description}</p>
 
       <div className="flex gap-2 mt-2">
