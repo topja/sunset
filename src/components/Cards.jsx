@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { tabs, cards } from "../data/bannerData";
+import { tabs, cards } from "../data/Data";
 import Tabs from "./Tabs";
 import Category from "./Category";
 import ReservationModal from "./ReservationModal";
