@@ -7,13 +7,7 @@ import PiscinaImage from "../assets/Piscina.avif";
 import { sendContactEmail } from "../services/contactService";
 import ContactForm from "../components/ContactForm";
 import MapSection from "../components/MapSection";
-import ComedorImage from "../assets/Comedor.avif";
-import CocinaImage from "../assets/Cocina.avif";
-import BalconImage from "../assets/Balcon.avif";
-import SalaImage from "../assets/Sala.avif";
-import Resena1 from "../assets/Resena1.jpg";
-import Resena2 from "../assets/Resena2.jpg";
-import ExteriorImage from "../assets/Exterior.avif";
+import { mapSectionImages } from '../data/Data';
 
 const Contact = () => {
   const [formStatus, setFormStatus] = useState("idle");
@@ -109,7 +103,7 @@ const Contact = () => {
         <MapSection
           airbnbUrl="https://www.airbnb.cl/rooms/753469374767232802?_set_bev_on_new_domain=1734363698_EANTUwYzM2ZDQ3MG&source_impression_id=p3_1734389820_P35FlgGnExNXUxD2"
           mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.647393720606!2d-71.66793932507089!3d-33.45849193908687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966215e164239725%3A0x75a314c38b24fc7c!2sWaldemar%20-%20Dr.%20A.%20Coutts%20171%2C%202690071%20El%20Tabo%2C%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1737571111023!5m2!1ses!2scl"
-          images={[ExteriorImage, PiscinaImage, ComedorImage, SalaImage, CocinaImage, BalconImage, Resena1, Resena2]}
+          images={mapSectionImages}
         />
       </div>
     </>
