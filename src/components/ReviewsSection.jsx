@@ -56,7 +56,7 @@ const ReviewsSection = ({ experienceId }) => {
         ))}
       </div>
       <button
-        className="bg-transparent hover:text-black text-Charcoal font-bold px-4 py-2 rounded-lg transition duration-300 mt-4"
+        className="bg-transparent hover:text-black text-Charcoal text-2xl font-agbalumo px-4 py-2 rounded-lg transition duration-300 mt-4"
         onClick={() => setIsReviewModalOpen(true)}
       >
         Agregar Nueva Reseña
